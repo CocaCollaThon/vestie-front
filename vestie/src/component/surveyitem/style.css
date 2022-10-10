@@ -1,0 +1,43 @@
+body {
+    background-color: #F6F6F6;
+    align-items: center;
+    justify-content: center;
+
+}
+.survey_item_box {
+    background-color: white;
+    border-radius: 10px;
+    width: 80vw;
+    height: 10vh;
+    padding: 25px;
+    margin: 5px auto;
+}
+.survey_item_name_box {
+    font-weight: bold;
+    font-size: 22px;
+}
+.survey_item_date_box {
+    color: #929292;
+    font-size: 12px;
+
+}
+.survey_item_question_count_box {
+    display: inline;
+    color: #929292;
+    font-size: 11px;
+}
+.survey_item_question_count {
+    color: black;
+    font-size: 13px;
+}
+
+.survey_item_give_point {
+    color: blue;
+    font-size: 22px;
+}
+
+.survey_item_give_point_box {
+    display: inline;
+    color: #929292;
+    font-size: 12px;
+}
