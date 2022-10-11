@@ -1,0 +1,10 @@
+.underline_input_box {
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+.underline_input {
+    width: 100%;
+    border: 0 solid #E2E2E2;
+    border-bottom-width: 2px;
+}

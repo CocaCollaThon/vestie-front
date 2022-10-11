@@ -1,7 +1,8 @@
 import {Component} from "react";
 import {Header} from "../../component/header/header";
-import {ChoiceQuestion} from "../../component/choicequestion/choiceQuestion";
-import {MultiChoiceQuestion} from "../../component/multichoicequestion/multiChoiceQuestion";
+import {ChoiceQuestion} from "../../component/question/choicequestion/choiceQuestion";
+import {MultiChoiceQuestion} from "../../component/question/multichoicequestion/multiChoiceQuestion";
+import {ShortAnswerQuestion} from "../../component/question/shortanswerquestion/shortAnswerQuestion";
 
 export class ProceedSurvey extends Component {
     render() {
@@ -10,6 +11,7 @@ export class ProceedSurvey extends Component {
                 <Header></Header>
                 <ChoiceQuestion></ChoiceQuestion>
                 <ChoiceQuestion></ChoiceQuestion>
+                <ShortAnswerQuestion></ShortAnswerQuestion>
                 <MultiChoiceQuestion></MultiChoiceQuestion>
                 <MultiChoiceQuestion></MultiChoiceQuestion>
             </div>
