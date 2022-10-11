@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {Header} from "../../component/header/header";
-import {SurveyItem} from "../../component/surveyitem/surveyitem";
+import {SurveyItem} from "../../component/surveyitem/surveyItem";
 
 export class Main extends Component {
     render() {

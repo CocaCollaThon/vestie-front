@@ -1,11 +1,13 @@
 import './App.css';
 import {Main} from './page/main/main'
-import {ProceedSurvey} from "./page/proceedsurvey/ProceedSurvey";
+import {ProceedSurvey} from "./page/proceedsurvey/proceedSurvey";
+import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
 
 const route = (window) => {
    switch (window.location.pathname) {
       case "/survey/proceed": return <ProceedSurvey />
-      default: return <Main />;
+      case "/complete": return <CompleteProceedSurvey />
+      default: return <Main />
    }
 }
 

@@ -1,0 +1,10 @@
+.complete_icon {
+    width: 150px;
+    height: 120px;
+    background-image: url("./complete.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 100%;
+}
