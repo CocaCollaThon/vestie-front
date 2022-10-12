@@ -1,18 +1,11 @@
-import {Component} from "react";
-import './header.css';
+import "./header.css";
 
-export class Header extends Component {
-    render() {
-        return <HeaderComponent></HeaderComponent>
-    }
+function Header() {
+  return <HeaderComponent></HeaderComponent>;
 }
 
-
-class HeaderComponent extends Component {
-    render() {
-        return (
-            <div className="vestie_header">
-            </div>
-        )
-    }
+function HeaderComponent() {
+  return <div className="vestie_header"></div>;
 }
+
+export default Header;
