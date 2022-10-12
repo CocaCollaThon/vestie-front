@@ -1,7 +1,11 @@
-import "./style.css";
+import {Component} from "react";
+import './style.css'
 
-function CompleteIcon() {
-  return <div className="complete_icon"></div>;
+export class CompleteIcon extends Component {
+    render() {
+        return (
+            <div className="complete_icon">
+            </div>
+        )
+    }
 }
-
-export default CompleteIcon;

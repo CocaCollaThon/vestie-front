@@ -1,13 +1,14 @@
-import Header from "../../component/header/header";
-import CompleteProceedSurveyComponent from "../../component/completeproceedsurvey/completeProceedSurveyComponent";
+import {Component} from "react";
+import {Header} from "../../component/header/header";
+import {CompleteProceedSurveyComponent} from "../../component/completeproceedsurvey/completeProceedSurveyComponent";
 
-function CompleteProceedSurvey() {
-  return (
-    <div>
-      <Header></Header>
-      <CompleteProceedSurveyComponent></CompleteProceedSurveyComponent>
-    </div>
-  );
+export class CompleteProceedSurvey extends Component {
+    render() {
+        return (
+            <div>
+                <Header></Header>
+                <CompleteProceedSurveyComponent></CompleteProceedSurveyComponent>
+            </div>
+        )
+    }
 }
-
-export default CompleteProceedSurvey;
