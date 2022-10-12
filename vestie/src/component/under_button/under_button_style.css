@@ -1,0 +1,14 @@
+
+.under_btn{
+    background-color: #4184F2;
+    border: #4184F2;
+    border-radius: 8px;
+    width: 80%;
+    height: 60px;
+    display: block;
+    color: white;
+    position: fixed;
+    left: 40px;
+    bottom: 50px;
+    font-size: x-large;
+}
