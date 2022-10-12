@@ -28,7 +28,6 @@ export class SurveyItem extends Component {
                 <div className="survey_item_give_point_box">
                     <span className="survey_item_give_point">10</span> p
                 </div>
-                <div></div>
             </div>
         </div>
     }
