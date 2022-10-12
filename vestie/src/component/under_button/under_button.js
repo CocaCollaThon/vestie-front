@@ -5,10 +5,12 @@ function Button({ disabled, children }) {
     return <button disabled={disabled}>{children}</button>;
   }
 
-export class UnderButton extends Component {
-    render() {
-        return <div className="under_btn_box">
-                <button className="under_btn">버튼</button>
-            </div>
-    }
+export function UnderButton(){
+    
+    return (<div className="under_btn_box">
+            <button className="under_btn">버튼</button>
+        </div>);
+    
 }
+
+export default UnderButton;

@@ -19,8 +19,7 @@ const route = (window) => {
 }
 
 const App = () => {
-   return route(window)
-}
-
+  return route(window);
+};
 
 export default App;

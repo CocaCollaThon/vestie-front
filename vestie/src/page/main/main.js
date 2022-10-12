@@ -1,17 +1,33 @@
-import {Component} from "react";
-import {Header} from "../../component/header/header";
-import {SurveyItem} from "../../component/surveyitem/surveyItem";
+import React, { useRef, useState } from 'react';
+import SurveyList from "../../component/surveyitem/surveyList";
+import Header from "../../component/header/header";
+import UnderButton from "../../component/under_button/under_button";
 
-export class Main extends Component {
-    render() {
-        return (
-            <div>
-                <Header></Header>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-            </div>
-        )
-    }
+
+export function Main() {
+  
+  
+
+
+  const surveys=[
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
+    
+  ];
+
+  
+
+  return (
+    <div>
+      <Header></Header>
+      <SurveyList surveys={surveys}></SurveyList>
+    </div>
+  );
 }
+
+export default Main;
