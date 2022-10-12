@@ -1,17 +1,16 @@
-import {Component} from "react";
-import {Header} from "../../component/header/header";
-import {SurveyItem} from "../../component/surveyitem/surveyItem";
+import SurveyItem from "../../component/surveyitem/surveyItem";
+import Header from "../../component/header/header";
 
-export class Main extends Component {
-    render() {
-        return (
-            <div>
-                <Header></Header>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-                <SurveyItem></SurveyItem>
-            </div>
-        )
-    }
+function Main() {
+  return (
+    <div>
+      <Header></Header>
+      <SurveyItem></SurveyItem>
+      <SurveyItem></SurveyItem>
+      <SurveyItem></SurveyItem>
+      <SurveyItem></SurveyItem>
+    </div>
+  );
 }
+
+export default Main;

@@ -1,10 +1,11 @@
-import {Component} from "react";
-import './style.css'
+import "./style.css";
 
-export class UnderLineInput extends Component {
-    render() {
-        return <div className="underline_input_box">
-            <input className="underline_input"/>
-        </div>
-    }
+function UnderLineInput() {
+  return (
+    <div className="underline_input_box">
+      <input className="underline_input" />
+    </div>
+  );
 }
+
+export default UnderLineInput;
