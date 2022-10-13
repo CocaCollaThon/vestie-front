@@ -1,13 +1,10 @@
 import React, { useRef, useState } from 'react';
 import SurveyList from "../../component/surveyitem/surveyList";
 import Header from "../../component/header/header";
-import UnderButton from "../../component/under_button/under_button";
 
 
 export function Main() {
   
-  
-
 
   const surveys=[
     { id: 1, title: "제목 1", deadline:"20220000", Q_num:"110",point: "15" },
@@ -20,7 +17,6 @@ export function Main() {
     
   ];
 
-  
 
   return (
     <div>

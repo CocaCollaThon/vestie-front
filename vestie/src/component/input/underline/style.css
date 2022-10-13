@@ -1,15 +1,12 @@
 .underline_input_box {
     box-sizing: border-box;
     padding: 10px 10px 10px 10px ;
-    /* background-color: #83aaff; */
     border-radius: 15px;
-    border: 2px solid black;
 
 }
 
 .underline {
-    
-    width: 95%;
+    width: 100%;
     height: 40px;
     border: 0 solid #a7a7a7;
     border-bottom-width: 2px;
@@ -19,18 +16,6 @@
 }
 
 .underline_box{
-    margin-left: 15px;
-    margin-top: 15px;
+    margin-left: 5px;
     margin-bottom: 15px;
-}
-
-.underline_Question{
-    font-size: 20px;
-    margin-left: 15px;
-}
-
-.underline_Question_box{
-    padding-top: 10px;
-    padding-bottom: 15px;
-
 }

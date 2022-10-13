@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-function ChoiceQuestion() {
+function ChoiceQuestion({Question}) {
   const [singleSelectArr, setSingleSelectArr] = useState([
     false,
     false,
@@ -22,6 +22,7 @@ function ChoiceQuestion() {
 
     setSingleSelectArr(arr);
   };
+
   return (
     <div className="question_item_box">
       {/* 질문 이름 */}

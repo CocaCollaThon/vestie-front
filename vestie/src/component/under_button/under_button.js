@@ -5,10 +5,10 @@ function Button({ disabled, children }) {
     return <button disabled={disabled}>{children}</button>;
   }
 
-export function UnderButton(){
+export function UnderButton(props){
     
     return (<div className="under_btn_box">
-            <button className="under_btn">버튼</button>
+            <button className="under_btn">{props.button_title}</button>
         </div>);
     
 }
