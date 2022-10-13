@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-function ChoiceQuestion({Question}) {
+export const ChoiceQuestion=({Question})=> {
   const [singleSelectArr, setSingleSelectArr] = useState([
     false,
     false,
