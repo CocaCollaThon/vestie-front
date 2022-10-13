@@ -1,11 +1,11 @@
 import "./header.css";
 
-function Header() {
-  return <HeaderComponent></HeaderComponent>;
+export const Header = () => {
+    return <HeaderComponent></HeaderComponent>;
 }
 
-function HeaderComponent() {
-  return <div className="vestie_header"></div>;
+const HeaderComponent = () => {
+    return <div className="vestie_header"></div>;
 }
 
 export default Header;
