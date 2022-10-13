@@ -11,6 +11,7 @@
     border: 0 solid #a7a7a7;
     border-bottom-width: 2px;
     background-color: transparent;
+    outline: 0;
 }
 
 .underline_box{
