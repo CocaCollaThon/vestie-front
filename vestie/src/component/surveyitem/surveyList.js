@@ -2,7 +2,7 @@ import React from 'react';
 import SurveyItem from "./surveyItem";
 
 
-export function SurveyList({ surveys }) {
+export const SurveyList = ({ surveys }) => {
   
     return (
         <div>

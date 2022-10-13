@@ -1,6 +1,6 @@
 import "./style.css";
 
-function CompleteIcon() {
+export const CompleteIcon = () => {
   return <div className="complete_icon"></div>;
 }
 

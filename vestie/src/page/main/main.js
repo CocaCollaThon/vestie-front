@@ -3,7 +3,7 @@ import SurveyList from "../../component/surveyitem/surveyList";
 import Header from "../../component/header/header";
 
 
-export function Main() {
+export const Main = () => {
   
 
   const surveys=[
