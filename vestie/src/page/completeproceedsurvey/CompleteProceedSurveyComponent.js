@@ -1,7 +1,7 @@
 import Header from "../../component/header/header";
 import CompleteProceedSurveyComponent from "../../component/completeproceedsurvey/completeProceedSurveyComponent";
 
-function CompleteProceedSurvey() {
+export function CompleteProceedSurvey() {
   return (
     <div>
       <Header></Header>

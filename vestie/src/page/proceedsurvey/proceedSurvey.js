@@ -3,7 +3,7 @@ import ChoiceQuestion from "../../component/question/choicequestion/choiceQuesti
 import ShortAnswerQuestion from "../../component/question/shortanswerquestion/shortAnswerQuestion";
 import MultiChoiceQuestion from "../../component/question/multichoicequestion/multiChoiceQuestion";
 
-function ProceedSurvey() {
+export function ProceedSurvey() {
   return (
     <div>
       <Header></Header>

@@ -1,6 +1,6 @@
 import UnderLineInput from "../../input/underline/underLineInput";
 
-function ShortAnswerQuestion() {
+export function ShortAnswerQuestion() {
   return (
     <div className="question_item_box">
       {/* 질문 이름 */}
