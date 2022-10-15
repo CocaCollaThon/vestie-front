@@ -22,7 +22,7 @@ export function SurveyItem({ survey }){
             {/* 문항 수 */}
             <div className="survey_item_question_count_box">
                 <span className="survey_item_question_count">
-                    {survey.Q_Num}
+                    {survey.Q_num}
                     </span> 문항
             </div>
 
