@@ -1,6 +1,8 @@
 import Header from "../../component/header/header";
 import RegisterChoiceQuestion from "../../component/registerServey/registerChoiceQuestion";
 import RegisterShortAnwerQuestion from "../../component/registerServey/registerShortAnwerQuestion";
+import UnderButton from "../../component/under_button/under_button";
+
 import "./registerServey.css";
 
 export function RegisterServey() {
@@ -15,8 +17,9 @@ export function RegisterServey() {
       
       <div className="btn_add_question_box">
           <button className="btn_add_question">+</button>
-
       </div>
+      <UnderButton button_title="완료"></UnderButton>
+
     </div>
   );
 }

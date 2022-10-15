@@ -4,8 +4,7 @@ import {ProceedSurvey} from "./page/proceedsurvey/proceedSurvey";
 import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
 import { UnderLineInput } from './component/input/underline/underLineInput';
 import { UnderButton } from './component/under_button/under_button';
-import { RegisterShortAnwerQuestion } from './component/registerServey/registerShortAnwerQuestion';
-import {RegisterServey} from "./page/registerServey/registerServey";
+import {SignUp_setID} from "./page/signUp/signUp_1";
 
 
 const route = (window) => {
@@ -14,7 +13,8 @@ const route = (window) => {
       case "/complete": return <CompleteProceedSurvey />
       case "/input": return <UnderLineInput />
       case "/btn": return <UnderButton />
-      case "/register": return <RegisterServey />
+      case "/signup": return <SignUp_setID />
+
 
 
       default: return <Main />

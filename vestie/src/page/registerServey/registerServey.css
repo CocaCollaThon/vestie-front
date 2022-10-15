@@ -1,3 +1,8 @@
+/* Register */
+
+.regist_contents{
+    margin-bottom: 100px;
+}
 .page_title{
     font-weight: bold;
     font-size: 22px;
@@ -19,4 +24,44 @@
     bottom: 50px;
     font-size: 40px;
     margin : 0 auto;
+}
+
+.data_input_box{
+    width: 90vw;
+    padding: 20px;
+    margin: 3vh auto;
+    box-sizing: border-box;
+}
+.data_input_title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+.deadline_input{
+    margin-left: 20px;
+    width: 200px;
+    height: 50px;
+    border: 0px;
+    background-color: #F6F6F6;
+    font-size: x-large;
+}
+.dividing_line{
+    margin-left: 15px;
+    background-color: #929292;
+}
+
+.required_time_input{
+    display: flex;
+    font-size: large;
+}
+
+.check_radio_btns{
+    display: flex;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.dropdown_box{
+    margin-left: 15px;
 }
