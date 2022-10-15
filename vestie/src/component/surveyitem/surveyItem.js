@@ -1,7 +1,7 @@
 import "./style.css";
 
 
-export function SurveyItem({ survey }){
+export const SurveyItem = ({ survey }) => {
 
     return <div className="survey_item_box">
 
