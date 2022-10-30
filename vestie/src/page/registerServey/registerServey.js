@@ -18,7 +18,7 @@ export function RegisterServey() {
       <div className="btn_add_question_box">
           <button className="btn_add_question">+</button>
       </div>
-      <UnderButton button_title="완료"></UnderButton>
+      <UnderButton button_title="완료" next_page="check_before_register"></UnderButton>
 
     </div>
   );

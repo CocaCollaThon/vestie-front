@@ -2,8 +2,11 @@ import "./style.css";
 
 
 export const SurveyItem = ({ survey }) => {
+    function moveToServey(e){
+        window.location.href ="/servey";
+    }
 
-    return <div className="survey_item_box">
+    return <div className="survey_item_box" onClick={moveToServey}>
 
         {/* 설문의 이름과 날짜 제공 */}
         <div className="survey_item_top_box">
