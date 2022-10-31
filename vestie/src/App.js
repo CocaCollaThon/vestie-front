@@ -31,19 +31,7 @@ const Router = () => {
   
 }
 
-// const Routes = (window) => {
-//    switch (window.location.pathname) {
-//       case "/survey/proceed": return <ProceedSurvey />
-//       case "/complete": return <CompleteProceedSurvey />
-//       case "/input": return <UnderLineInput />
-//       case "/btn": return <UnderButton />
-//       case "/signup": return <SignUp_setID />
 
-
-
-//       default: return <Main />
-//    }
-// }
 
 const App = () => {
   return Router();

@@ -8,6 +8,7 @@ export function CheckBeforeSubmit(window) {
   // if (window.location.pathname==="/check_before_register") {
   //   title="설문을 등록하시겠습니까?"
   // }
+export function CheckBeforeSubmit() {
   return (
     <div className="check_befor_submit_box">
       <Header></Header>
