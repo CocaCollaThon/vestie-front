@@ -2,10 +2,9 @@ body {
     background-color: #F6F6F6;
     align-items: center;
     justify-content: center;
-
 }
-.register_question_box {
 
+.register_question_box {
     background-color: #FFFFFF;
     border-radius: 10px;
     width: 88vw;
@@ -13,9 +12,11 @@ body {
     margin: 3vh auto;
     box-sizing: border-box;
 }
+
 .question_type_dropdown{
     margin-left: 80%;
 }
+
 .type_title_box{
     display: flex;
 }
@@ -31,9 +32,8 @@ body {
     display: flex;
 }
 
-.anwerQuestion{
+.answerQuestion{
     margin-left: 25px;
-
 }
 
 .btn_add_choice{

@@ -6,24 +6,29 @@
     padding: 25px;
     margin: 5px auto;
 }
+
 .survey_item_bottom_box {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
 }
+
 .survey_item_name_box {
     font-weight: bold;
     font-size: 22px;
 }
+
 .survey_item_date_box {
     color: #929292;
     font-size: 12px;
 
 }
+
 .survey_item_question_count_box {
     color: #929292;
     font-size: 11px;
 }
+
 .survey_item_question_count {
     color: black;
     font-size: 13px;

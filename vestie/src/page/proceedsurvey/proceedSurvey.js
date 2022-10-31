@@ -4,17 +4,16 @@ import ShortAnswerQuestion from "../../component/question/shortanswerquestion/sh
 import MultiChoiceQuestion from "../../component/question/multichoicequestion/multiChoiceQuestion";
 
 export const ProceedSurvey = () => {
- 
-  return (
-    <div>
-      <Header></Header>
-      <ChoiceQuestion></ChoiceQuestion>
-      <ChoiceQuestion></ChoiceQuestion>
-      <ShortAnswerQuestion></ShortAnswerQuestion>
-      <MultiChoiceQuestion></MultiChoiceQuestion>
-      <MultiChoiceQuestion></MultiChoiceQuestion>
-    </div>
-  );
+    return (
+        <div>
+            <Header></Header>
+            <ChoiceQuestion></ChoiceQuestion>
+            <ChoiceQuestion></ChoiceQuestion>
+            <ShortAnswerQuestion></ShortAnswerQuestion>
+            <MultiChoiceQuestion></MultiChoiceQuestion>
+            <MultiChoiceQuestion></MultiChoiceQuestion>
+        </div>
+    );
 }
 
 export default ProceedSurvey;

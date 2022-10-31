@@ -2,8 +2,7 @@ import UnderLineInput from "../input/underline/underLineInput";
 import Dropdown from "../dropdown/dropdown";
 import './registerQuestion.css';
 
-
-export const RegisterChoiceQuestion = (props) => {
+export const RegisterShortAnswerQuestion = (props) => {
     return (
         <div className="register_question_box">
             <div className="choose_question_type">
@@ -17,16 +16,10 @@ export const RegisterChoiceQuestion = (props) => {
                 <UnderLineInput></UnderLineInput>
             </div>
 
-            <div className="add_questions">
-                <input className="add_choice_button" type="radio"/>
-                <span> 무야호</span>
-            </div>
-
-            <div className="btn_add_choice_box">
-                <input className="add_choice_button" type="radio"/>
-                <button className="btn_add_choice">추가</button>
+            <div className="answerQuestion">
+                <UnderLineInput></UnderLineInput>
             </div>
         </div>
     );
 }
-export default RegisterChoiceQuestion;
+export default RegisterShortAnswerQuestion;
