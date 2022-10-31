@@ -35,7 +35,7 @@ export function ServeySetTitle() {
         </div>
       </div>
 
-      <UnderButton button_title="다음"></UnderButton>
+      <UnderButton button_title="다음" next_page="register_setTarget"></UnderButton>
 
     </div>
   );
