@@ -1,0 +1,18 @@
+.signup_box {
+    font-weight: bold;
+    font-size: 22px;
+    width: 100%;
+}
+.input_box {
+    width: 80%;
+    margin: 9vh auto;
+}
+
+.underline_input_box {
+    margin-top: 1.5vh;
+}
+
+.check_before_submit_bottom_button_box {
+    width: 80%;
+    margin: 15vh auto;
+}

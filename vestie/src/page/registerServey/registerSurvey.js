@@ -2,7 +2,6 @@ import Header from "../../component/header/header";
 import RegisterChoiceQuestion from "../../component/registerServey/registerChoiceQuestion";
 import RegisterShortAnswerQuestion from "../../component/registerServey/registerShortAnswerQuestion";
 import UnderButton from "../../component/under_button/under_button";
-
 import "./registerServey.css";
 
 export const RegisterSurvey = () => {

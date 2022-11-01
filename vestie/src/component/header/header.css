@@ -1,13 +1,15 @@
+
 .vestie_header {
     background-color: #4184F2;
     height: 80px;
-    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .title_div{
-    padding-top: 13px;
-    padding-left: 15px;
-    font-size: xx-large;
+    font-size: 30px;
     color: white;
-    font-weight: 500;
+    font-weight: bold;
+    margin-left: 10vw;
 }
