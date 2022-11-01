@@ -1,11 +1,14 @@
 import "./style.css";
 import CompleteIcon from "../completeicon/completeIcon";
 
-export const CompleteProceedSurveyComponent = () => {
+
+
+
+export const CompleteProceedSurveyComponent = (props) => {
     return (
         <div className="complete_survey_box">
             <div className="complete_survey_content">
-                설문 참여 완료
+                {props.titleText}
             </div>
 
             <div className="icon_box">

@@ -2,9 +2,15 @@ import Header from "../../component/header/header";
 import {UnderButton} from '../../component/under_button/under_button';
 import "./checkBeforeSubmit.css";
 
-const title = "답변을 제출하시겠습니까?";
+var title = "답변을 제출하시겠습니까?";
 
 export const CheckBeforeSubmit = () => {
+    const presentLocation =window.location.href;
+
+    if(presentLocation.search("register")){
+        title="설문을 등록하시겠습니까?";
+    }
+
     return (
         <div className="check_before_submit_box">
             <Header></Header>

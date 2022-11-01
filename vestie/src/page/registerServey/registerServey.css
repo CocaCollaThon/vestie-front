@@ -1,6 +1,7 @@
 /* Register */
 .register_contents{
     margin-bottom: 100px;
+    margin-top: 30%;
 }
 
 .page_title{
@@ -11,6 +12,10 @@
 .btn_add_question_box{
     width:100%;
     height:100%;
+}
+
+.register_questions{
+    margin-top: 30%;
 }
 
 .btn_add_question{
