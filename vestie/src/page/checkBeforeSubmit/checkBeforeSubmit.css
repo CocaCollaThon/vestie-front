@@ -1,0 +1,37 @@
+.check_before_submit_text_box {
+    margin-left: 10vw;
+    margin-top: 15vh;
+}
+
+.check_before_submit_text {
+    font-weight: bold;
+    font-size: 25px;
+}
+.check_before_submit_answer_num_box {
+    margin-left: 10vw;
+    margin-top: 1vh;
+    color: #515151;
+}
+
+.check_before_submit_answer_num {
+    color: #4184F2;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 5vw;
+}
+
+.check_before_submit_gave_point_box {
+    color: #515151;
+    margin-bottom: 15px;
+}
+
+.check_before_submit_gave_point {
+    color: #4184F2;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 5vw;
+}
+.check_before_submit_box_bottom {
+    width: 80%;
+    margin: 45vh auto;
+}

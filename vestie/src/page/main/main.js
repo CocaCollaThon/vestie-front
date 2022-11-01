@@ -1,6 +1,8 @@
 import React, {useRef, useState} from 'react';
 import SurveyList from "../../component/surveyitem/surveyList";
 import Header from "../../component/header/header";
+import UnderBar from "../../component/under_bar/underBar";
+
 import "./main.css";
 export const Main = () => {
     const surveys = [
@@ -20,6 +22,7 @@ export const Main = () => {
                 <SurveyList surveys={surveys}></SurveyList>
 
             </div>
+            <UnderBar></UnderBar>
         </div>
     );
 }
