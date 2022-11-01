@@ -1,7 +1,6 @@
 import "./style.css";
 
 export const CircleButton = ({text, color = "blue"}) => {
-
     return (
         <div>
             <div className="gender_button" onClick={clickButton}>
