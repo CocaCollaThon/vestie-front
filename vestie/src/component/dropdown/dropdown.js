@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Dropdown = props => {
+const Dropdown = () => {
     return (
         <form>
-            <select name="question_type" >
+            <select name="question_type">
                 <option value="choice">객관식</option>
                 <option value="short_answer">주관식</option>
             </select>

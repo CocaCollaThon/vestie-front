@@ -1,12 +1,11 @@
 import "./style.css";
 
-
-export const SurveyItem = ({ survey }) => {
-    function moveToServey(e){
-        window.location.href ="/servey";
+export const SurveyItem = ({survey}) => {
+    const moveToSurvey = () => {
+        window.location.href = "/survey";
     }
 
-    return <div className="survey_item_box" onClick={moveToServey}>
+    return <div className="survey_item_box" onClick={moveToSurvey}>
 
         {/* 설문의 이름과 날짜 제공 */}
         <div className="survey_item_top_box">
@@ -36,7 +35,6 @@ export const SurveyItem = ({ survey }) => {
                     </span> p
             </div>
         </div>
-
     </div>;
 }
 

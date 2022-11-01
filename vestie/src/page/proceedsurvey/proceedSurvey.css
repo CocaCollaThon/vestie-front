@@ -2,5 +2,7 @@ body {
     background-color: #F6F6F6;
     align-items: center;
     justify-content: center;
-
+}
+.questions{
+    margin-top: 25%;
 }

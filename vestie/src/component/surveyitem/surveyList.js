@@ -3,7 +3,6 @@ import SurveyItem from "./surveyItem";
 
 
 export const SurveyList = ({ surveys }) => {
-  
     return (
         <div>
           {surveys.map(survey => (
