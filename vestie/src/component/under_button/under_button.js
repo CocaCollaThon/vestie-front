@@ -1,9 +1,5 @@
 import './under_button_style.css'
 
-const Button = ({disabled, children}) => {
-    return <button disabled={disabled}>{children}</button>;
-}
-
 export const UnderButton = (props) => {
     const moveToPage = () => {
         window.location.href = "/" + props.next_page;
@@ -15,5 +11,4 @@ export const UnderButton = (props) => {
         </div>
     );
 }
-
 export default UnderButton;

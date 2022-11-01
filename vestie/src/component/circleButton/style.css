@@ -1,0 +1,56 @@
+.gender_text {
+    width: 70vw;
+    display: inline-block;
+    margin-left: 10px;
+
+}
+
+.select {
+    color: black;
+}
+.unselect {
+    color: #929292;
+}
+
+.gender_button_box {
+    width: 15px;
+    display: inline-block;
+    margin-top: 0.8vh;
+}
+
+
+
+.button {
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+}
+
+
+
+
+
+.blue {
+    border: 2px solid #4184F2;
+}
+
+.pink {
+    border: 2px solid #DB00FF;
+}
+
+
+
+.checkmark {
+    display: inline-block;
+    width: 14px;
+    height: 8px;
+    margin-bottom: 4px;
+    border-top: 0;
+    border-right: 0;
+    transform: rotate(-45deg);
+}
+
+
+
+

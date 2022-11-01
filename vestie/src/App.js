@@ -10,6 +10,9 @@ import {RegisterSurvey} from "./page/registerServey/registerSurvey";
 import {CheckBeforeSubmit} from "./page/checkBeforeSubmit/checkBeforeSubmit";
 
 import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
+import {SignUp} from "./page/signUp/signUp";
+import {Login} from "./page/login/login";
+import {SignUpInputPersonalInfo} from "./page/signUp/signUpInputPersonalInfo";
 
 const Router = () => {
    return (
@@ -22,6 +25,9 @@ const Router = () => {
             <Route path="/register_questions" element ={<RegisterSurvey/>} />
             <Route path="/check_before_register" element ={<CheckBeforeSubmit/>} />
             <Route path="/complete_register" element ={<CompleteProceedSurvey/>} />
+            <Route path="/signup" element ={<SignUp/>} />
+            <Route path="/signup_input_personal_info_page" element ={<SignUpInputPersonalInfo/>} />
+            <Route path="/login" element ={<Login/>} />
          </Routes>
       </BrowserRouter>
    );

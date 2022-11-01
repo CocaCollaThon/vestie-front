@@ -2,7 +2,6 @@ import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 import Dropdown from "../../component/dropdown/dropdown";
-
 import "./registerServey.css";
 
 export const SurveySetTarget = () => {
