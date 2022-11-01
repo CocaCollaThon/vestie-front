@@ -1,24 +1,24 @@
 body {
     background-color: #F6F6F6;
-    align-items: center;
-    justify-content: center;
 }
 
 .register_question_box {
     background-color: #FFFFFF;
     border-radius: 10px;
     width: 88vw;
-    padding: 20px;
-    margin: 3vh auto;
     box-sizing: border-box;
+    margin: 20px auto;
+    padding: 20px;
 }
 
 .question_type_dropdown{
-    margin-left: 80%;
+    margin-right: 3vw;
+    float: right;
 }
 
 .type_title_box{
     display: flex;
+    margin-bottom: 3vh;
 }
 
 .questionNumber {
@@ -28,12 +28,7 @@ body {
 }
 
 .add_questions{
-    margin-left: 30px;
-    display: flex;
-}
-
-.answerQuestion{
-    margin-left: 25px;
+    margin: 0.5vh 0 0 5vw;
 }
 
 .btn_add_choice{
@@ -49,7 +44,7 @@ body {
 }
 
 .btn_add_choice_box{
-    margin-left: 30px;
+    margin: 0.5vh 0 0 5vw;
 
     display: flex;
 }
