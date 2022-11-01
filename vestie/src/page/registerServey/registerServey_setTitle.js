@@ -1,7 +1,6 @@
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import UnderLineInput from "../../component/input/underline/underLineInput";
-
 import "./registerServey.css";
 
 export const SurveySetTitle = () => {
