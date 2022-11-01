@@ -3,6 +3,18 @@ body {
     align-items: center;
     justify-content: center;
 }
-.questions{
+.question{
     margin-top: 25%;
+}
+.under_btn_box{
+    width: 100%;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.under_btn{
+    width: 90%;
+
 }

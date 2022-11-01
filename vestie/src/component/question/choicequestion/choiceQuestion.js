@@ -10,7 +10,6 @@ export const ChoiceQuestion = () => {
     const handleClickRadioButton =(e) => {
         console.log(e.target.value);
         setX(e.target.value);
-        console.log(x[e.target.value]);
 
     }
     
