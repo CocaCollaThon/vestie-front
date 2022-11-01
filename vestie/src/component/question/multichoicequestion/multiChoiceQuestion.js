@@ -1,4 +1,24 @@
+import React, { useState, useEffect } from "react";
+
+
+
 export const MultiChoiceQuestion = () => {
+    const [checkedInputs, setCheckedInputs] = useState([]);
+
+    const changeHandler = (checked, id) => {
+        if (checked) {
+          setCheckedInputs([...checkedInputs, id]);
+        } else {
+          // 체크 해제
+          setCheckedInputs(checkedInputs.filter((el) => el !== id));
+        }
+      };
+
+      const handleClickedCheckBox =(e)=>{
+        changeHandler(e.currentTarget.checked, e.target.id);
+      }
+    
+
     return (
         <div className="question_item_box">
 
@@ -13,34 +33,22 @@ export const MultiChoiceQuestion = () => {
 
                 {/* 질문 아이템 */}
                 <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">마리조나블루</span>
+                    <input className="choice_button" type="checkbox" id ="1" 
+                    onChange={handleClickedCheckBox}
+                      checked={checkedInputs.includes("1") ? true : false}
+                      />
+                    <label className="item_name">마리조나블루</label>
                 </div>
 
                 <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">킹컁쿙우이오자오마잊</span>
+                    <input className="choice_button" type="checkbox" id ="2" 
+                    onChange={handleClickedCheckBox}
+                      checked={checkedInputs.includes("2") ? true : false}
+                      />
+                    <label className="item_name">무야효</label>
                 </div>
 
-                <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">김밥</span>
-                </div>
-
-                <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">밤김</span>
-                </div>
-
-                <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">초밥</span>
-                </div>
-
-                <div className="choice_item">
-                    <input className="choice_button" type="checkbox"/>
-                    <span className="item_name">아프리카 기분좋은 왕호랑이</span>
-                </div>
+                
             </div>
         </div>
     );
