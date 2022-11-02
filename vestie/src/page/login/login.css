@@ -1,0 +1,40 @@
+.login_box {
+    font-weight: bold;
+    font-size: 22px;
+    width: 100%;
+    margin-top: 40%;
+}
+.input_box {
+    width: 80%;
+    margin: 9vh auto;
+}
+
+.underline_input_box {
+    margin-top: 2vh;
+}
+
+.check_before_submit_bottom_button_box {
+    width: 80%;
+    margin: 15vh auto;
+    margin-bottom: 20%;
+}
+
+.askToSignUpBox{
+    width: 100%;
+    font-weight: 100;
+    font-size: 14px;
+
+}
+.askToSignUp{
+    width: 70%;
+    margin: auto;
+}
+.askIDExist, .moveToSignUp{
+    float: left;
+    margin-left: 1.5vh;
+}
+.moveToSignUp{
+    color: #4184F2;
+    font-weight: bold;
+
+}

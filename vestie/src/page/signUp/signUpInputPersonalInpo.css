@@ -16,3 +16,8 @@
     width: 80%;
     margin: 1vh auto;
 }
+.signUpTitle{
+    margin-bottom: 9vh;
+    font-weight: bold;
+    font-size: 30px;
+}

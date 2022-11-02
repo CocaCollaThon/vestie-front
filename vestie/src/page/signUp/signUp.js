@@ -8,6 +8,7 @@ export const SignUp = () => {
         <div className="signup_box">
             <Header></Header>
             <div className="input_box">
+                <div className="signUpTitle">회원가입</div>
                 <div className="signup_username_input">아이디</div>
                 <div className="underline_input_box">
                     <UnderLineInput></UnderLineInput>
@@ -29,9 +30,7 @@ export const SignUp = () => {
                 <UnderButton button_title="다음" next_page="signup_input_personal_info_page"></UnderButton>
             </div>
         </div>
-        //  아이디
-        // 비빈번호
-        // 재확인
+        
     );
 }
 
