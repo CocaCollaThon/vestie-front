@@ -31,16 +31,17 @@ export const RegisterChoiceQuestion = () => {
             <div className="add_questions">
                 {radioBtnList.map((radioBtns, i)=>{
                     return (
-                        
                         <ChoiceCmp value ={i} checked={i} btn_text ={radioBtns}></ChoiceCmp>
                     );
                 })}
             </div>
 
             <div className="btn_add_choice_box">
-                <input className="add_choice_button" type="radio"/>
+                <input className="add_choice_radio_button" type="radio"/>
                 <UnderLineInput acting ={(e) => {setNewBtnText(e.target.value);}}></UnderLineInput>
-                <button className="btn_add_choice"  onClick={addChoiceBtn}>추가</button>
+                <div className="btn_add_choice_box">
+                    <button className="btn_add_choice"  onClick={addChoiceBtn}>추가</button>
+                </div>
             </div>
         </div>
     )

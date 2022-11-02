@@ -1,7 +1,7 @@
 
 .vestie_header {
     background-color: #4184F2;
-    height: 10%;
+    height: 80px;
     margin-bottom: 30px;
     position: fixed;
     width: 100%;
@@ -14,5 +14,5 @@
     font-size: 30px;
     color: white;
     font-weight: bold;
-    margin-left: 10vw;
+    margin: 0.5em;
 }

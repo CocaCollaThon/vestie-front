@@ -45,8 +45,10 @@ export const CheckBeforeSubmit = () => {
                 <div className="check_before_submit_gave_point_box">
                     {point_text} <span className="check_before_submit_gave_point">{point}</span>p
                 </div>
-                <div className="check_before_submit_bottom_button_box">
-                    <UnderButton button_title={btn_text} next_page={submitOrRegister>0 ? "complete_submit" : "complete_register"}></UnderButton>
+                <div className="check_before_submit_bottom_button_out_box">
+                    <div className="check_before_submit_bottom_button_box">
+                        <UnderButton button_title={btn_text} next_page={submitOrRegister>0 ? "complete_submit" : "complete_register"}></UnderButton>
+                    </div>
                 </div>
             </div>
         </div>

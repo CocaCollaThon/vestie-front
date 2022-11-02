@@ -31,7 +31,11 @@ export const SurveySetTitle = () => {
                     </div>
                 </div>
             </div>
-            <UnderButton button_title="다음" next_page="register_setTarget"></UnderButton>
+            <div className="under_btn_box">
+                <div className="under_btn">
+                    <UnderButton button_title="다음" next_page="register_setTarget"></UnderButton>
+                </div>
+            </div>
         </div>
     );
 }

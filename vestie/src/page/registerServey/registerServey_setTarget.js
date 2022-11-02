@@ -8,11 +8,11 @@ export const SurveySetTarget = () => {
     return (
         <div>
             <Header></Header>
-            <div className="page_title">
-                조사 대상
-            </div>
+            
             <div className="register_contents">
-
+                <div className="page_title">
+                    조사 대상
+                </div>
                 <div className="data_input_box">
 
                     <div className="data_input_title">성별</div>
@@ -54,8 +54,11 @@ export const SurveySetTarget = () => {
                     </div>
                 </div>
             </div>
-
-            <UnderButton button_title="다음" next_page="register_questions"></UnderButton>
+            <div className="under_btn_box">
+                <div className="under_btn">
+                    <UnderButton button_title="다음" next_page="register_questions"></UnderButton>
+                </div>
+            </div>
         </div>
     );
 }
