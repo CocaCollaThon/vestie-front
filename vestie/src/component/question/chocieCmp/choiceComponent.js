@@ -2,9 +2,9 @@ import "./choiceCmp.css";
 
 export const ChoiceCmp = (prop) => {
     return (
-        <div className="button_box">
-            <input type="radio"/>
-            <span>{prop.choice_text}</span>
+        <div>
+            <input className="choice_button" type="radio" value={prop.value} isChecked="{prop.checked}"  onChange={prop.action}/>
+            <label className="item_name">{prop.btn_text}</label>
         </div>
     );
 }

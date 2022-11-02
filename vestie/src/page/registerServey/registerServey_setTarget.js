@@ -18,8 +18,8 @@ export const SurveySetTarget = () => {
                     <div className="data_input_title">성별</div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp choice_text="남성"></ChoiceCmp>
-                        <ChoiceCmp choice_text="여성"></ChoiceCmp>
+                        <ChoiceCmp btn_text="남성"></ChoiceCmp>
+                        <ChoiceCmp btn_text="여성"></ChoiceCmp>
                     </div>
 
                     <hr className="dividing_line"></hr>
@@ -31,17 +31,17 @@ export const SurveySetTarget = () => {
                     <div className="data_input_title">나이</div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp choice_text="10대"></ChoiceCmp>
-                        <ChoiceCmp choice_text="20대"></ChoiceCmp>
+                        <ChoiceCmp btn_text="10대"></ChoiceCmp>
+                        <ChoiceCmp btn_text="20대"></ChoiceCmp>
                     </div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp choice_text="30대"></ChoiceCmp>
-                        <ChoiceCmp choice_text="40대"></ChoiceCmp>
+                        <ChoiceCmp btn_text="30대"></ChoiceCmp>
+                        <ChoiceCmp btn_text="40대"></ChoiceCmp>
                     </div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp choice_text="50대"></ChoiceCmp>
+                        <ChoiceCmp btn_text="50대"></ChoiceCmp>
                     </div>
 
                     <hr className="dividing_line"></hr>
