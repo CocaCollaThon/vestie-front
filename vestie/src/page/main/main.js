@@ -20,7 +20,6 @@ export const Main = () => {
             <Header></Header>
             <div className='surveyList'>
                 <SurveyList surveys={surveys}></SurveyList>
-
             </div>
             <UnderBar></UnderBar>
         </div>

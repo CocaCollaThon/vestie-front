@@ -1,6 +1,6 @@
 /* Register */
 .register_contents{
-    margin-bottom: 100px;
+    margin-bottom: 5%;
     margin-top: 30%;
 }
 
@@ -12,6 +12,8 @@
 .btn_add_question_box{
     width:100%;
     height:100%;
+    margin: 5%;
+    margin-left: 0;
 }
 
 .register_questions{
@@ -72,4 +74,15 @@
 
 .dropdown_box{
     margin-left: 15px;
+}
+
+.under_btn_box{
+    width: 100%;
+
+}
+.under_btn{
+    position:relative;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }

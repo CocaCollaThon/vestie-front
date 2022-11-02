@@ -4,13 +4,13 @@
     width: 80vw;
     height: 10vh;
     padding: 25px;
-    margin: 5px auto;
+    margin: 15px auto;
 }
 
 .survey_item_bottom_box {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
+    margin-top: 0.7em;
 }
 
 .survey_item_name_box {
@@ -27,6 +27,7 @@
 .survey_item_question_count_box {
     color: #929292;
     font-size: 11px;
+    
 }
 
 .survey_item_question_count {

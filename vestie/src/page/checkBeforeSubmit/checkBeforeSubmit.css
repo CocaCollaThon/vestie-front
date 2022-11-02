@@ -17,21 +17,34 @@
     color: #4184F2;
     font-size: 22px;
     font-weight: bold;
-    margin-left: 5vw;
+    margin-left: 3vw;
 }
 
+.check_before_submit_box_bottom {
+    margin: 55vh auto;
+    margin-bottom: 0;
+}
 .check_before_submit_gave_point_box {
     color: #515151;
     margin-bottom: 15px;
+    margin-left: 10vw;
+
 }
 
 .check_before_submit_gave_point {
     color: #4184F2;
     font-size: 22px;
     font-weight: bold;
-    margin-left: 5vw;
+    margin-left: 3vw;
 }
-.check_before_submit_box_bottom {
-    width: 80%;
-    margin: 45vh auto;
+
+.check_before_submit_bottom_button_out_box{
+    width: 100%;
+
+}
+.check_before_submit_bottom_button_box{
+    position:relative;
+    width: 100%;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }

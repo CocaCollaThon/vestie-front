@@ -28,23 +28,29 @@ body {
 }
 
 .add_questions{
-    margin: 0.5vh 0 0 5vw;
-}
-
-.btn_add_choice{
-    background-color: white;
-    border: white 1px solid;
-    border-radius: 8px;
-    /* width: 30px; */
-    /* height: 60px; */
-    display: block;
-    color: #4184F2;
-    bottom: 50px;
-    font-size: medium;
+    margin: 0.3vh 0 0 5vw;
 }
 
 .btn_add_choice_box{
-    margin: 0.5vh 0 0 5vw;
+    border-radius: 8px;
+    /* width: 0px; */
+    /* height: 60px; */
+    
+    bottom: 50px;
+    font-size: medium;
+    margin-right: 15px;
+}
 
+.btn_add_choice{
+    width: 55px;
+    display: block;
+    color: #4184F2;
+    background-color: white;
+    border: white 1px solid;
+}
+
+
+.btn_add_choice_box{
     display: flex;
 }
+
