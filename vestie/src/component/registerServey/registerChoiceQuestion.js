@@ -42,6 +42,7 @@ export const RegisterChoiceQuestion = () => {
                 <div className="btn_add_choice_box">
                     <button className="btn_add_choice"  onClick={addChoiceBtn}>추가</button>
                 </div>
+               
             </div>
         </div>
     )
