@@ -6,18 +6,10 @@ import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 
 
 
-const QuestionList = ({num, children, addComponent}) => {
-    return (
-        <div>{children}</div>
-    );
-}
-
-
-export const RegisterChoiceQuestion = (prop) => {
+export const RegisterChoiceQuestion = () => {
     
 
     const [radioBtnList, setRadioBtnList] = useState([]);
-
     const [newBtnText, setNewBtnText] = useState('');
 
     const onReset =(e) =>{
@@ -34,16 +26,7 @@ export const RegisterChoiceQuestion = (prop) => {
     
     return (
         <div className="register_question_box">
-            <div className="choose_question_type">
-                <div className="question_type_dropdown">
-                    <Dropdown></Dropdown>
-                </div>
-            </div>
-
-            <div className="type_title_box">
-                <span className="questionNumber"> {prop.num} </span>
-                <UnderLineInput></UnderLineInput>
-            </div>
+            
 
             <div className="add_questions">
                 {radioBtnList.map((radioBtns, i)=>{

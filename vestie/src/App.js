@@ -11,6 +11,9 @@ import {CheckBeforeSubmit} from "./page/checkBeforeSubmit/checkBeforeSubmit";
 
 import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
 import {UnderBar} from "./component/under_bar/underBar";
+
+import {RegisterQuestionBox} from "./component/registerServey/registerQuestionBox";
+
 import {SignUp} from "./page/signUp/signUp";
 import {Login} from "./page/login/login";
 import {SignUpInputPersonalInfo} from "./page/signUp/signUpInputPersonalInfo";
@@ -24,6 +27,9 @@ const Router = () => {
             <Route path="/register_setTitle" element ={<SurveySetTitle/>} />
             <Route path="/register_setTarget" element ={<SurveySetTarget/>} />
             <Route path="/register_questions" element ={<RegisterSurvey/>} />
+            
+            <Route path="/questions" element ={<RegisterQuestionBox/>} />
+
             <Route path="/check_before_register" element ={<CheckBeforeSubmit/>} />
             <Route path="/check_before_submit" element ={<CheckBeforeSubmit/>} />
             <Route path="/complete_register" element ={<CompleteProceedSurvey/>} />

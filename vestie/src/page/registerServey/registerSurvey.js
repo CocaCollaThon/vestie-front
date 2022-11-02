@@ -2,14 +2,16 @@ import {useState} from "react"
 import Header from "../../component/header/header";
 import RegisterChoiceQuestion from "../../component/registerServey/registerChoiceQuestion";
 import UnderButton from "../../component/under_button/under_button";
+import {RegisterQuestionBox} from "../../component/registerServey/registerQuestionBox";
+
 import "./registerServey.css";
 
 export const RegisterSurvey = () => {
     const [numChildren, setNumChildren] = useState(0)
     const children = []
 
-    for (let i = 0; i < numChildren; i++) {
-        children.push(<RegisterChoiceQuestion num={i}/>)
+    for (let i = 1; i < numChildren; i++) {
+        children.push(<RegisterQuestionBox num={i}/>)
     }
 
     const addComponent = () => {
