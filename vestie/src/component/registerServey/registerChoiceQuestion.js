@@ -2,9 +2,11 @@ import {useState} from "react";
 import UnderLineInput from "../input/underline/underLineInput";
 import Dropdown from "../dropdown/dropdown";
 import './registerQuestion.css';
+import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 
 
-const QuestionQuestionList = ({num, children, addComponent}) => {
+
+const QuestionList = ({num, children, addComponent}) => {
     return (
         <div>{children}</div>
     );
@@ -12,17 +14,24 @@ const QuestionQuestionList = ({num, children, addComponent}) => {
 
 
 export const RegisterChoiceQuestion = (prop) => {
-    const [numChildren, setNumChildren] = useState(0)
-    const children = []
+    
 
-    for (let i = 0; i < numChildren; i++) {
-        children.push(<UnderLineInput num={i}/>)
+    const [radioBtnList, setRadioBtnList] = useState([]);
+
+    const [newBtnText, setNewBtnText] = useState('');
+
+    const onReset =(e) =>{
+        setNewBtnText("");
+        e.target.value="";
     }
 
-    const addComponent = () => {
-        setNumChildren((count) => count + 1)
+    const addChoiceBtn=()=>{
+        var choiceList=[...radioBtnList];
+        choiceList.push(newBtnText);
+        setRadioBtnList(choiceList);
     }
 
+    
     return (
         <div className="register_question_box">
             <div className="choose_question_type">
@@ -37,13 +46,18 @@ export const RegisterChoiceQuestion = (prop) => {
             </div>
 
             <div className="add_questions">
-                <input className="add_choice_button" type="radio"/>
-                <QuestionQuestionList addComponent={addComponent} num={prop.num}>{children}</QuestionQuestionList>
+                {radioBtnList.map((radioBtns, i)=>{
+                    return (
+                        
+                        <ChoiceCmp value ={i} checked={i} btn_text ={radioBtns}></ChoiceCmp>
+                    );
+                })}
             </div>
 
-            <div className="btn_add_choice_box" onClick={addComponent}>
+            <div className="btn_add_choice_box">
                 <input className="add_choice_button" type="radio"/>
-                <button className="btn_add_choice">추가</button>
+                <UnderLineInput acting ={(e) => {setNewBtnText(e.target.value);}}></UnderLineInput>
+                <button className="btn_add_choice"  onClick={addChoiceBtn}>추가</button>
             </div>
         </div>
     )

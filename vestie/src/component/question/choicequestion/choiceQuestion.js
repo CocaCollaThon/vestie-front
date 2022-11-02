@@ -1,5 +1,7 @@
 import {useState} from "react";
 import "./style.css";
+import {ChoiceCmp} from "../chocieCmp/choiceComponent";
+
 
 
 
@@ -19,25 +21,23 @@ export const ChoiceQuestion = () => {
             {/* 질문 이름 */}
             <div className="question_name">
                 <span className="question_mark">Q.</span>
-                오늘 혜진이가 먹고 싶었던 음식을 하나만 고르시오
+                오늘 혜진이가 듣고 싶은 노래를 한 가지 고르시오
             </div>
 
             {/* 질문 고르는 칸(객관식) */}
             <div className="choice_list">
                 {/* 질문 아이템 */}
                 <div className="choice_item">
-                    <input className="choice_button" type="radio" value="1" checked={x ==="1"}  onChange={handleClickRadioButton}/>
-                    <label className="item_name">동해</label>
+                    <ChoiceCmp value="1" checked={x==="1"} action={handleClickRadioButton} btn_text="집에 가지마"></ChoiceCmp>
                 </div>
 
                 <div className="choice_item" >
-                    <input className="choice_button" type="radio" value="2" checked={x ==="2"} onChange={handleClickRadioButton}/>
-                    <label className="item_name">홀롤로롤로로</label>
+                    <ChoiceCmp value="2" checked={x==="2"} action={handleClickRadioButton} btn_text="종강을 빌어줘"></ChoiceCmp>
                 </div>
 
                 <div className="choice_item" >
-                    <input className="choice_button" type="radio" value="3" checked={x ==="3"} onChange={handleClickRadioButton}/>
-                    <label className="item_name">알리오올리오</label>
+                    <ChoiceCmp value="3" checked={x==="3"} action={handleClickRadioButton} btn_text="이야이에오"></ChoiceCmp>
+
                 </div>
 
                
