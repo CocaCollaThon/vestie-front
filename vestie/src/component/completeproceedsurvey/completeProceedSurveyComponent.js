@@ -16,7 +16,7 @@ export const CompleteProceedSurveyComponent = (props) => {
             </div>
 
             <div className="complete_survey_gave_point_box">
-                <span className="complete_survey_gave_point">10</span>p 지급 완료
+                <span className="complete_survey_gave_point">{props.point}</span>p {props.point_text}
             </div>
         </div>
     );

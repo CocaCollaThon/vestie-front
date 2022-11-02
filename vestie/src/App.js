@@ -25,7 +25,9 @@ const Router = () => {
             <Route path="/register_setTarget" element ={<SurveySetTarget/>} />
             <Route path="/register_questions" element ={<RegisterSurvey/>} />
             <Route path="/check_before_register" element ={<CheckBeforeSubmit/>} />
+            <Route path="/check_before_submit" element ={<CheckBeforeSubmit/>} />
             <Route path="/complete_register" element ={<CompleteProceedSurvey/>} />
+            <Route path="/complete_submit" element ={<CompleteProceedSurvey/>} />
 
             <Route path="/underBar" element ={<UnderBar/>} />
             <Route path="/signup" element ={<SignUp/>} />

@@ -1,26 +1,18 @@
 import {useState} from "react";
 import "./style.css";
 
-export const ChoiceQuestion = ({question}) => {
-    const [singleSelectArr, setSingleSelectArr] = useState([
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-    ]);
 
-    const checkSingleSelect = (index) => {
-        const arr = singleSelectArr;
-        arr.forEach((element) => {
-            if (element === true) element = false;
-        });
 
-        arr[index] = true;
+export const ChoiceQuestion = () => {
+    
+    const [x,setX] = useState([]);
 
-        setSingleSelectArr(arr);
-    };
+    const handleClickRadioButton =(e) => {
+        console.log(e.target.value);
+        setX(e.target.value);
+
+    }
+    
 
     return (
         <div className="question_item_box">
@@ -33,35 +25,22 @@ export const ChoiceQuestion = ({question}) => {
             {/* 질문 고르는 칸(객관식) */}
             <div className="choice_list">
                 {/* 질문 아이템 */}
-                <div className="choice_item" onClick={() => checkSingleSelect(0)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">마리조나블루</span>
+                <div className="choice_item">
+                    <input className="choice_button" type="radio" value="1" checked={x ==="1"}  onChange={handleClickRadioButton}/>
+                    <label className="item_name">동해</label>
                 </div>
 
-                <div className="choice_item" onClick={() => checkSingleSelect(1)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">킹컁쿙우이오자오마잊</span>
+                <div className="choice_item" >
+                    <input className="choice_button" type="radio" value="2" checked={x ==="2"} onChange={handleClickRadioButton}/>
+                    <label className="item_name">홀롤로롤로로</label>
                 </div>
 
-                <div className="choice_item" onClick={() => checkSingleSelect(2)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">김밥</span>
+                <div className="choice_item" >
+                    <input className="choice_button" type="radio" value="3" checked={x ==="3"} onChange={handleClickRadioButton}/>
+                    <label className="item_name">알리오올리오</label>
                 </div>
 
-                <div className="choice_item" onClick={() => checkSingleSelect(3)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">밤김</span>
-                </div>
-
-                <div className="choice_item" onClick={() => checkSingleSelect(4)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">초밥</span>
-                </div>
-
-                <div className="choice_item" onClick={() => checkSingleSelect(5)}>
-                    <input className="choice_button" type="radio"/>
-                    <span className="item_name">아프리카 기분좋은 왕호랑이</span>
-                </div>
+               
             </div>
         </div>
     );
