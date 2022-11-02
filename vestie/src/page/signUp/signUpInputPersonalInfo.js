@@ -9,6 +9,8 @@ export const SignUpInputPersonalInfo = () => {
         <div className="signup_box">
             <Header></Header>
             <div className="input_box">
+                <div className="signUpTitle">회원가입</div>
+
                 <div className="signup_username_input">이름</div>
                 <div className="underline_input_box">
                     <UnderLineInput></UnderLineInput>
