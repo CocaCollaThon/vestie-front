@@ -1,9 +1,13 @@
 import "./style.css";
 
-export const CircleButton = ({text, color = "blue"}) => {
+export const CircleButton = ({acting, text, color = "blue"}) => {
+    // const onClickAction = (e)=>{
+    //     acting;
+    //     clickButton(e);
+    // };
     return (
         <div>
-            <div className="gender_button" onClick={clickButton}>
+            <div className="gender_button" onClick={acting}>
                 <div className="gender_button_box">
                     <div className={color + " button"}></div>
                 </div>
@@ -17,6 +21,7 @@ export const CircleButton = ({text, color = "blue"}) => {
 
 const clickButton = (e) => {
     let children = e.currentTarget.parentNode.parentNode.children;
+    
     for (let i = 1; i >= 0; i--) {
         let button = children[i].children[0].children[0].children[0];
         button.parentNode.nextSibling.setAttribute("class", "gender_text unselect");
@@ -27,10 +32,10 @@ const clickButton = (e) => {
     }
 
     const button = e.currentTarget.children[0].children[0];
-    button.parentNode.nextSibling.setAttribute("class", "gender_text select");
-    let attribute = button.getAttribute("class");
-    let attrStr = attribute.toString();
-    attrStr = attrStr.includes("button")
+        button.parentNode.nextSibling.setAttribute("class", "gender_text select");
+        let attribute = button.getAttribute("class");
+        let attrStr = attribute.toString();
+        attrStr = attrStr.includes("button")
         ? attrStr.replaceAll("button", "checkmark")
         : attrStr.replaceAll("checkmark", "button");
 

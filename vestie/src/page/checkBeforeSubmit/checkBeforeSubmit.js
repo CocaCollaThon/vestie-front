@@ -4,6 +4,7 @@ import "./checkBeforeSubmit.css";
 
 var title = "";
 var context="";
+var Qnum="";
 var btn_text="";
 var point_text="";
 var point="";
@@ -19,6 +20,7 @@ export const CheckBeforeSubmit = () => {
         btn_text="등록";
         point_text="차감 포인트"
         point ="50";
+        Qnum=sessionStorage.getItem("numOfSurvey")
     }else if(submitOrRegister==1){
         title = "답변을 제출하시겠습니까?";
         context ="답변문항";
@@ -37,7 +39,7 @@ export const CheckBeforeSubmit = () => {
                 </div>
                 <div className="check_before_submit_answer_num_box">
                     {context}
-                    <span className="check_before_submit_answer_num">128</span>
+                    <span className="check_before_submit_answer_num">{Qnum}</span>
                 </div>
             </div>
 

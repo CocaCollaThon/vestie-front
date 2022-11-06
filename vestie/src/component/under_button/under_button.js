@@ -7,7 +7,7 @@ export const UnderButton = (props) => {
 
     return (
         <div className="under_btn_box">
-            <button className="under_btn" onClick={moveToPage}>{props.button_title}</button>
+            <button className="under_btn" onClick={(props.state =="notMove") ? props.action : moveToPage}>{props.button_title}</button>
         </div>
     );
 }
