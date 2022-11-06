@@ -16,9 +16,28 @@
 .check_before_submit_bottom_button_box {
     width: 80%;
     margin: 15vh auto;
+    margin-bottom: 0;
 }
 .signUpTitle{
     margin-bottom: 9vh;
     font-weight: bold;
     font-size: 30px;
+}
+.btn_checkPW{
+    width: 55px;
+    display: block;
+    color: #4184F2;
+    background-color: #F6F6F6;
+    border: #F6F6F6 1px solid;
+    font-weight: bold;
+}
+
+
+.text_checkPW_box{
+    width: 80%;
+    float: left;
+    font-size: small;
+    font-weight: 100;
+    
+
 }

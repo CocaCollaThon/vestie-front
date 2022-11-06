@@ -2,25 +2,52 @@ import UnderLineInput from "../../component/input/underline/underLineInput";
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import "./login.css"
+import React,{useState} from "react";
+import axios from 'axios';
+
+
 export const Login = () => {
+
+    const [userID, setUserID] = useState('');
+    const [userPW, setUserPW] = useState('');
+
+    const hadleLogin = () =>{
+        alert(userID);
+        alert(userPW);
+        
+        axios.post('http://localhost:8080/api/v1/login ', {
+            "username": userID,
+            "password": userPW
+        }).then(v =>{
+            alert("로그인 되었습니다.");
+            sessionStorage.setItem("userID", v.data.userID);
+            sessionStorage.setItem("name", v.data.name);
+            window.location.href = "/";
+        },
+        e =>{
+            alert("서버 장애");
+            console.error(e);
+        })
+    }
+
     return (
         <div className="login_box">
             <Header></Header>
             <div className="input_box">
                 <div className="login_username_input">아이디</div>
                 <div className="underline_input_box">
-                    <UnderLineInput></UnderLineInput>
+                    <UnderLineInput acting ={(e) => {setUserID(e.target.value);}}></UnderLineInput>
                 </div>
             </div>
             <div className="input_box">
                 <div className="login_password_input">비밀번호</div>
                 <div className="underline_input_box">
-                    <UnderLineInput></UnderLineInput>
+                    <UnderLineInput acting ={(e) => {setUserPW(e.target.value);}}></UnderLineInput>
                 </div>
             </div>
             
             <div className="check_before_submit_bottom_button_box">
-                <UnderButton button_title="로그인" next_page=""></UnderButton>
+                <UnderButton button_title="로그인" state ="notMove" action={hadleLogin}></UnderButton>
             </div>
 
             <div className="askToSignUpBox">

@@ -7,6 +7,8 @@ import {RegisterQuestionBox} from "../../component/registerServey/registerQuesti
 import "./registerServey.css";
 
 export const RegisterSurvey = () => {
+
+    
     const [numChildren, setNumChildren] = useState(0)
     const children = []
 
@@ -16,6 +18,12 @@ export const RegisterSurvey = () => {
 
     const addComponent = () => {
         setNumChildren((count) => count + 1)
+    }
+
+    const handelSurvey = () =>{
+        sessionStorage.setItem("numOfSurvey",numChildren);
+        window.location.href = "/check_before_register";
+
     }
 
     return (
@@ -32,7 +40,7 @@ export const RegisterSurvey = () => {
                     <button className="btn_add_question" onClick={addComponent}>+</button>
                 </div>
 
-                <UnderButton button_title="완료" next_page="check_before_register"></UnderButton>
+                <UnderButton button_title="완료" state="notMove" action={handelSurvey}></UnderButton>
             </div>
         </div>
     )

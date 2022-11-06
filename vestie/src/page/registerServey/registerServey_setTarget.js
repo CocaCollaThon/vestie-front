@@ -3,8 +3,17 @@ import UnderButton from "../../component/under_button/under_button";
 import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 import Dropdown from "../../component/dropdown/dropdown";
 import "./registerServey.css";
+import React,{useState} from "react";
+import axios from 'axios';
+
 
 export const SurveySetTarget = () => {
+    const [genderConstraint, setGenderConstraint] = useState('');
+    const [minAgeConstraint, setMinAgeConstraint] = useState('');
+    const [maxAgeConstraint, setMaxAgeConstraint] = useState('');
+    const [userAge, setUserPW] = useState('');
+
+
     return (
         <div>
             <Header></Header>
@@ -18,8 +27,8 @@ export const SurveySetTarget = () => {
                     <div className="data_input_title">성별</div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp btn_text="남성"></ChoiceCmp>
-                        <ChoiceCmp btn_text="여성"></ChoiceCmp>
+                        <ChoiceCmp btn_text="남성" value ="MAN"></ChoiceCmp>
+                        <ChoiceCmp btn_text="여성" value ="WOMAN"></ChoiceCmp>
                     </div>
 
                     <hr className="dividing_line"></hr>
