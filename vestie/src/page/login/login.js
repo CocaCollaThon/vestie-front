@@ -37,17 +37,20 @@ export const Login = () => {
                 <div className="login_username_input">아이디</div>
                 <div className="underline_input_box">
                     <UnderLineInput acting ={(e) => {setUserID(e.target.value);}}></UnderLineInput>
+
                 </div>
             </div>
             <div className="input_box">
                 <div className="login_password_input">비밀번호</div>
                 <div className="underline_input_box">
                     <UnderLineInput acting ={(e) => {setUserPW(e.target.value);}}></UnderLineInput>
+
                 </div>
             </div>
             
             <div className="check_before_submit_bottom_button_box">
                 <UnderButton button_title="로그인" state ="notMove" action={hadleLogin}></UnderButton>
+
             </div>
 
             <div className="askToSignUpBox">
