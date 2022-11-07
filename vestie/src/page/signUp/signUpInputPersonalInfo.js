@@ -16,6 +16,7 @@ export const SignUpInputPersonalInfo = () => {
     const [userGender, setUserGender] = useState('');
 
     const handleSignUp = () =>{
+
         axios.post('http://localhost:8080/api/v1/signUp', {
             "name": realName,
             "age": userAge,

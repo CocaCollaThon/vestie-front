@@ -10,6 +10,7 @@ export const RegisterSurvey = () => {
     var userId = sessionStorage.getItem("userID");
     
     const [numChildren, setNumChildren] = useState(1);
+
     const children = []
 
     var choiceTextList = new Array();
@@ -49,6 +50,7 @@ export const RegisterSurvey = () => {
             alert("서버 장애");
             console.error(e);
         })
+
 
     }
 
