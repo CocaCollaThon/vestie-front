@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState ,useEffect} from "react";
 
 import UnderLineInput from "../input/underline/underLineInput";
 
@@ -11,19 +11,44 @@ import RegisterShortAnswerQuestion from "./registerShortAnswerQuestion";
 
 
 export const RegisterQuestionBox = (props) => {
-    const [selected, setSelected] = useState("");
+    const [questionType, setQuestionType] = useState("choice");
+    const [questionTitle, setQuestionTitle] = useState("");
 
     const handleSelect = (e) => {
-    setSelected(e.target.value);
-    console.log(e.target.value);
-    
+    setQuestionType(e.target.value);
     };
+
+    const choiceQuestionData =(questionData) =>{
+        var choiceList = JSON.parse(sessionStorage.getItem("choiceList_"+ props.num));
+        if(choiceList != null){
+            questionData.choiceTexts= choiceList.choiceTexts;
+        }
+    }
+
+    var questionData = new Object();
+    
+    useEffect(() => {
+        questionData.questionNum = props.num;
+        questionData.questionType = questionType;
+        questionData.questionTitle = questionTitle;
+        switch(questionType){
+            case "choice":  choiceQuestionData(questionData); break;
+        }
+        var questionDataToJSON = JSON.stringify(questionData);
+
+        sessionStorage.removeItem("questionCmp_"+props.num);
+        sessionStorage.setItem("questionCmp_"+props.num, questionDataToJSON);
+        
+        
+    });
+
+  
 
     const choceQuestionType=(type)=>{
         switch(type){
-            case "" :return <RegisterChoiceQuestion></RegisterChoiceQuestion>; break;
-            case "choice": return <RegisterChoiceQuestion></RegisterChoiceQuestion>; break;
-            case "short_answer": return <RegisterShortAnswerQuestion></RegisterShortAnswerQuestion>; break;
+            case "" :return <RegisterChoiceQuestion questionNum={props.num}></RegisterChoiceQuestion>; break;
+            case "choice": return <RegisterChoiceQuestion questionNum={props.num}></RegisterChoiceQuestion>; break;
+            case "short_answer": return <RegisterShortAnswerQuestion questionNum={props.num}></RegisterShortAnswerQuestion>; break;
         }
     }
 
@@ -37,9 +62,9 @@ export const RegisterQuestionBox = (props) => {
 
             <div className="type_title_box">
                 <span className="questionNumber">{props.num} </span>
-                <UnderLineInput></UnderLineInput>
+                <UnderLineInput acting={(e)=>setQuestionTitle(e.target.value)}></UnderLineInput>
             </div>
-            {choceQuestionType(selected)}
+            {choceQuestionType(questionType)}
 
             
         </div>

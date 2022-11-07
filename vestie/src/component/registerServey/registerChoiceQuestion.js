@@ -1,26 +1,44 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import UnderLineInput from "../input/underline/underLineInput";
-import Dropdown from "../dropdown/dropdown";
 import './registerQuestion.css';
 import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 
 
 
-export const RegisterChoiceQuestion = () => {
+export const RegisterChoiceQuestion = (props) => {
+    
     
 
     const [radioBtnList, setRadioBtnList] = useState([]);
     const [newBtnText, setNewBtnText] = useState('');
 
-    const onReset =(e) =>{
-        setNewBtnText("");
-        e.target.value="";
+    var choiceTextList = new Array();
+
+    var questionObjforJson = new Object();
+    questionObjforJson.choiceTexts="";
+
+    useEffect(() => {
+        radioBtnList.map((radioBtnTexts, i)=>{
+            setChoiceTexts(radioBtnTexts);
+
+            var dataToJSON = JSON.stringify(questionObjforJson);
+            
+            sessionStorage.removeItem("choiceList_"+props.questionNum);
+            sessionStorage.setItem("choiceList_"+props.questionNum, dataToJSON);
+        });
+    });
+
+    const setChoiceTexts = (content) => {
+        choiceTextList.push(content);
+        questionObjforJson.choiceTexts=choiceTextList;
     }
 
-    const addChoiceBtn=()=>{
+    const btn_addChoice=()=>{
+
         var choiceList=[...radioBtnList];
         choiceList.push(newBtnText);
         setRadioBtnList(choiceList);
+
     }
 
     
@@ -29,9 +47,9 @@ export const RegisterChoiceQuestion = () => {
             
 
             <div className="add_questions">
-                {radioBtnList.map((radioBtns, i)=>{
+                {radioBtnList.map((radioBtnTexts, i)=>{
                     return (
-                        <ChoiceCmp value ={i} checked={i} btn_text ={radioBtns}></ChoiceCmp>
+                        <ChoiceCmp value ={i} checked={i} btn_text ={radioBtnTexts} groupName={props.questionNum}></ChoiceCmp>
                     );
                 })}
             </div>
@@ -40,7 +58,7 @@ export const RegisterChoiceQuestion = () => {
                 <input className="add_choice_radio_button" type="radio"/>
                 <UnderLineInput acting ={(e) => {setNewBtnText(e.target.value);}}></UnderLineInput>
                 <div className="btn_add_choice_box">
-                    <button className="btn_add_choice"  onClick={addChoiceBtn}>추가</button>
+                    <button className="btn_add_choice"  onClick={btn_addChoice}>추가</button>
                 </div>
                
             </div>

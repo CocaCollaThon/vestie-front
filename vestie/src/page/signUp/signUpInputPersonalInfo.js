@@ -15,7 +15,7 @@ export const SignUpInputPersonalInfo = () => {
     const [userAge, setUserAge] = useState('');
     const [userGender, setUserGender] = useState('');
 
-    const finishSignUp = () =>{
+    const handleSignUp = () =>{
         axios.post('http://localhost:8080/api/v1/signUp', {
             "name": realName,
             "age": userAge,
@@ -60,7 +60,7 @@ export const SignUpInputPersonalInfo = () => {
 
 
             <div className="check_before_submit_bottom_button_box">
-                <UnderButton button_title="완료" next_page="login" action={finishSignUp} state="notMove"></UnderButton>
+                <UnderButton button_title="완료" next_page="login" action={handleSignUp} state="notMove"></UnderButton>
             </div>
         </div>
 

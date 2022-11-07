@@ -16,7 +16,7 @@ export const Login = () => {
         alert(userPW);
         
         axios.post('http://localhost:8080/api/v1/login ', {
-            "username": userID,
+            "userID": userID,
             "password": userPW
         }).then(v =>{
             alert("로그인 되었습니다.");
