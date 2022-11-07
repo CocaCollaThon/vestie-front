@@ -4,7 +4,6 @@ import UnderLineInput from "../../component/input/underline/underLineInput";
 import "./registerServey.css";
 
 import React,{useState} from "react";
-import axios from 'axios';
 
 
 
