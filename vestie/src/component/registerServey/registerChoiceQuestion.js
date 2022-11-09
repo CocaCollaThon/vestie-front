@@ -23,8 +23,8 @@ export const RegisterChoiceQuestion = (props) => {
 
             var dataToJSON = JSON.stringify(questionObjforJson);
             
-            sessionStorage.removeItem("choiceList_"+props.questionNum);
-            sessionStorage.setItem("choiceList_"+props.questionNum, dataToJSON);
+            localStorage.removeItem("choiceList_"+props.questionNum);
+            localStorage.setItem("choiceList_"+props.questionNum, dataToJSON);
         });
     });
 

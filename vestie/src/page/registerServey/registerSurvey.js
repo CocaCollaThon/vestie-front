@@ -1,21 +1,22 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import {RegisterQuestionBox} from "../../component/registerServey/registerQuestionBox";
+import { useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import "./registerServey.css";
-import { json } from "react-router-dom";
 
 export const RegisterSurvey = () => {
     localStorage.clear();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    var userId = sessionStorage.getItem("userId");
     var choiceQuestionList = new Array();
     var subjectQuestionList = new Array();
     
     const [numChildren, setNumChildren] = useState(1);
-    const children = []
+    const children = [];
     
 
     
@@ -52,25 +53,35 @@ export const RegisterSurvey = () => {
 
     const handelSurvey = () =>{
         setQuestionLists();
+        
+        // alert("휘리릭 뿅");
+        //     localStorage.clear();
+        //     navigate('/check_before_register', {
+        //         state: {
+        //             numOfQuestion : numChildren
+        //         }
+        //     });
 
         axios.post('http://localhost:8080/api/v1/survey ', {
-            "userId": userId,
-            "title": sessionStorage.getItem("title"),
+            "userId": sessionStorage.getItem("userId"),
+            "title": location.state.title,
             "startDate": new Date().toLocaleDateString('ko-kr'),
-            "endDate": sessionStorage.getItem("endDate"),
-            "expectedTime": sessionStorage.getItem("expectedTime"),
-            "genderConstraint": sessionStorage.getItem("genderConstraint"),
-            "minAgeConstraint": sessionStorage.getItem("AgeConstraint"),
-            "maxAgeConstraint": sessionStorage.getItem("AgeConstraint")+9,
+            "endDate": location.state.endDate,
+            "expectedTime": location.state.expectedTime,
+            "genderConstraint": location.state.genderConstraint,
+            "minAgeConstraint": location.state.minAgeConstraint,
+            "maxAgeConstraint": location.state.maxAgeConstraint,
             "choiceQuestions" : choiceQuestionList,
             "subjectiveQuestions":subjectQuestionList
 
         }).then(v =>{
             alert("휘리릭 뿅");
-            sessionStorage.clear();
-            sessionStorage.setItem("userId",userId);
-            sessionStorage.setItem("numOfSurvey",numChildren);
-            window.location.href = "/check_before_register";
+            localStorage.clear();
+            navigate('/check_before_register"', {
+                state: {
+                    numOfQuestion : numChildren
+                }
+            });
 
         },
         e =>{

@@ -29,7 +29,7 @@ export const RegisterQuestionBox = (props) => {
         choiceQuestionData.title = questionTitle;
         choiceQuestionData.isMultiSelectable = false;
         
-        var choiceList = JSON.parse(sessionStorage.getItem("choiceList_"+ props.num));
+        var choiceList = JSON.parse(localStorage.getItem("choiceList_"+ props.num));
         if(choiceList != null){
             choiceQuestionData.choiceOptions= choiceList.choiceTexts;
         }

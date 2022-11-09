@@ -3,16 +3,30 @@ import UnderButton from "../../component/under_button/under_button";
 import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
 import "./registerServey.css";
 import React,{useState} from "react";
-import axios from 'axios';
-
+import { useNavigate,useLocation } from 'react-router-dom';
 
 export const SurveySetTarget = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const [genderConstraint, setGenderConstraint] = useState('');
     const [AgeConstraint, setAgeConstraint] = useState('');
 
     sessionStorage.setItem("AgeConstraint",AgeConstraint);
     sessionStorage.setItem("genderConstraint",genderConstraint);
 
+    const handleSurvey=()=>{
+        navigate('/register_questions', {
+            state: {
+                endDate: location.state.endDate,
+                title: location.state.title,
+                expectedTime : location.state.expectedTime,
+                minAgeConstraint: AgeConstraint,
+                maxAgeConstraint : (AgeConstraint==0) ? 500 :AgeConstraint+9,
+                genderConstraint : genderConstraint
+            }
+        });
+    }
 
     return (
         
@@ -24,13 +38,12 @@ export const SurveySetTarget = () => {
                     조사 대상
                 </div>
                 <div className="data_input_box">
-                    {console.log(genderConstraint)}
                     <div className="data_input_title">성별</div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp btn_text="남성" value ="MAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="여성" value ="WOMAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="둘 다" value ="BOTH" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                        <ChoiceCmp btn_text="남성" value ="ONLY_MAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                        <ChoiceCmp btn_text="여성" value ="ONLY_WOMAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                        <ChoiceCmp btn_text="둘 다" value ="NO_CONSTRAINT" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
                     </div>
 
                     <hr className="dividing_line"></hr>
@@ -53,7 +66,7 @@ export const SurveySetTarget = () => {
 
                     <div className="check_radio_btns">
                         <ChoiceCmp btn_text="50대" value ="50" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="상관 없음" value ="nan" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        <ChoiceCmp btn_text="상관 없음" value ="0" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
                     </div>
 
                     <hr className="dividing_line"></hr>
@@ -63,7 +76,7 @@ export const SurveySetTarget = () => {
             </div>
             <div className="under_btn_box">
                 <div className="under_btn">
-                    <UnderButton button_title="다음" next_page="register_questions"></UnderButton>
+                    <UnderButton button_title="다음" action={handleSurvey} state ="notMove"></UnderButton>
                 </div>
             </div>
         </div>
