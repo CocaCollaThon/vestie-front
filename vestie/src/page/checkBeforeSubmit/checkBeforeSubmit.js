@@ -1,6 +1,8 @@
 import Header from "../../component/header/header";
 import {UnderButton} from '../../component/under_button/under_button';
 import "./checkBeforeSubmit.css";
+import { useNavigate,useLocation } from 'react-router-dom';
+
 
 var title = "";
 var context="";
@@ -12,6 +14,8 @@ var point="";
 export const CheckBeforeSubmit = () => {
     const presentLocation =window.location.href;
     const submitOrRegister=presentLocation.search("submit")>0 ? 1 : -1;
+    const navigate = useNavigate();
+    const location = useLocation();
     
 
     if(submitOrRegister==-1){
@@ -20,7 +24,7 @@ export const CheckBeforeSubmit = () => {
         btn_text="등록";
         point_text="차감 포인트"
         point ="50";
-        Qnum=sessionStorage.getItem("numOfSurvey")
+        Qnum=location.state.numOfQuestion;
     }else if(submitOrRegister==1){
         title = "답변을 제출하시겠습니까?";
         context ="답변문항";

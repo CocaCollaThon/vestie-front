@@ -12,6 +12,11 @@ var arrIndex = 0;
 
 export const ProceedSurvey = () => {
 
+    // axios.get("http://localhost:8080/api/v1/survey/X")
+    //         .then(v => {
+    //             setCategories(v.data)
+    //             setCategory(v.data[0])
+    //         })
 
     const questions = [
         [

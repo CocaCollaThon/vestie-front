@@ -4,21 +4,27 @@ import UnderLineInput from "../../component/input/underline/underLineInput";
 import "./registerServey.css";
 
 import React,{useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const SurveySetTitle = () => {
+    const navigate = useNavigate();
 
     const [surveyTitle, setSurveyTitle] = useState('');
     const [surveyDeadLine, setSurveyDeadLine] = useState('');
     const [expectedTime, setExpectedTime] = useState('');
 
-    const hadleSrvey = () =>{
+    const handleSurvey = () =>{
+        navigate('/register_setTarget', {
+            state: {
+                endDate: surveyDeadLine,
+                title: surveyTitle,
+                expectedTime : expectedTime
+            }
+        });
         
-        sessionStorage.setItem("endDate", surveyDeadLine);
-        sessionStorage.setItem("title", surveyTitle);
-        sessionStorage.setItem("expectedTime", expectedTime);
-        window.location.href = "/register_setTarget";
+
     }
     return (
         <div>
@@ -49,7 +55,7 @@ export const SurveySetTitle = () => {
             </div>
             <div className="under_btn_box">
                 <div className="under_btn">
-                    <UnderButton button_title="다음" action={hadleSrvey} state ="notMove"></UnderButton>
+                    <UnderButton button_title="다음" action={handleSurvey} state ="notMove"></UnderButton>
                 </div>
             </div>
         </div>

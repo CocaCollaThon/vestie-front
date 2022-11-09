@@ -2,25 +2,49 @@ import {useState} from "react"
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import {RegisterQuestionBox} from "../../component/registerServey/registerQuestionBox";
+import { useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import "./registerServey.css";
 
 export const RegisterSurvey = () => {
-    var userId = sessionStorage.getItem("userID");
+    localStorage.clear();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    var choiceQuestionList = new Array();
+    var subjectQuestionList = new Array();
     
     const [numChildren, setNumChildren] = useState(1);
+    const children = [];
+    
 
-    const children = []
-
-    var choiceTextList = new Array();
-
+    
     for (let i = 1; i <= numChildren; i++) {
         children.push(<RegisterQuestionBox num={i} />)
-        choiceTextList.push(sessionStorage.getItem("questionCmp_"+i));
-        console.log(choiceTextList);
+    }
+
+    
+    const setQuestionLists=()=>{
+        for (let i = 1; i <= numChildren; i++) {
+
+            if(localStorage.getItem("choiceQuestionCmp_"+i) !=null){
+                
+                choiceQuestionList.push(localStorage.getItem("choiceQuestionCmp_"+i));
+                console.log("choiceQuestionList");
+                console.log(choiceQuestionList);
+                
+                
+            }else if(localStorage.getItem("subjectiveQuestionCmp_"+i) != null){
+                subjectQuestionList.push(localStorage.getItem("subjectiveQuestionCmp_"+i));
+                console.log("subjectQuestionList");
+                console.log(subjectQuestionList);
+                
+            }
+        }
 
     }
+
 
 
     const addComponent = () => {
@@ -28,22 +52,36 @@ export const RegisterSurvey = () => {
     }
 
     const handelSurvey = () =>{
+        setQuestionLists();
+        
+        // alert("휘리릭 뿅");
+        //     localStorage.clear();
+        //     navigate('/check_before_register', {
+        //         state: {
+        //             numOfQuestion : numChildren
+        //         }
+        //     });
+
         axios.post('http://localhost:8080/api/v1/survey ', {
-            "name": userId,
-            "title": sessionStorage.getItem("title"),
+            "userId": sessionStorage.getItem("userId"),
+            "title": location.state.title,
             "startDate": new Date().toLocaleDateString('ko-kr'),
-            "endDate": sessionStorage.getItem("endDate"),
-            "expectedTime": sessionStorage.getItem("expectedTime"),
-            "genderConstraint": sessionStorage.getItem("genderConstraint"),
-            "geConstraint": sessionStorage.getItem("AgeConstraint"),
-            "questions" : choiceTextList
+            "endDate": location.state.endDate,
+            "expectedTime": location.state.expectedTime,
+            "genderConstraint": location.state.genderConstraint,
+            "minAgeConstraint": location.state.minAgeConstraint,
+            "maxAgeConstraint": location.state.maxAgeConstraint,
+            "choiceQuestions" : choiceQuestionList,
+            "subjectiveQuestions":subjectQuestionList
 
         }).then(v =>{
             alert("휘리릭 뿅");
-            sessionStorage.clear();
-            sessionStorage.setItem("userID",userId);
-            sessionStorage.setItem("numOfSurvey",numChildren);
-            window.location.href = "/check_before_register";
+            localStorage.clear();
+            navigate('/check_before_register"', {
+                state: {
+                    numOfQuestion : numChildren
+                }
+            });
 
         },
         e =>{
