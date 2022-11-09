@@ -8,19 +8,17 @@ import axios from 'axios';
 
 export const Login = () => {
 
-    const [userID, setUserID] = useState('');
+    const [userId, setUserId] = useState('');
     const [userPW, setUserPW] = useState('');
 
     const hadleLogin = () =>{
-        alert(userID);
-        alert(userPW);
         
         axios.post('http://localhost:8080/api/v1/login ', {
-            "userID": userID,
+            "userId": userId,
             "password": userPW
         }).then(v =>{
             alert("로그인 되었습니다.");
-            sessionStorage.setItem("userID", v.data.userID);
+            sessionStorage.setItem("userId", v.data.userID);
             sessionStorage.setItem("name", v.data.name);
             window.location.href = "/";
         },
@@ -36,7 +34,7 @@ export const Login = () => {
             <div className="input_box">
                 <div className="login_username_input">아이디</div>
                 <div className="underline_input_box">
-                    <UnderLineInput acting ={(e) => {setUserID(e.target.value);}}></UnderLineInput>
+                    <UnderLineInput acting ={(e) => {setUserId(e.target.value);}}></UnderLineInput>
 
                 </div>
             </div>

@@ -6,9 +6,6 @@ import CircleButton from "../../component/circleButton/circleButton";
 import React,{useState} from "react";
 import axios from 'axios';
 
-// axios.get("/api/v1/signUp");
-
-
 
 export const SignUpInputPersonalInfo = () => {
     const [realName, setRealName] = useState('');

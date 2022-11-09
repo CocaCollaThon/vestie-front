@@ -14,31 +14,58 @@ export const RegisterQuestionBox = (props) => {
     const [questionType, setQuestionType] = useState("choice");
     const [questionTitle, setQuestionTitle] = useState("");
 
+
     const handleSelect = (e) => {
-    setQuestionType(e.target.value);
+        setQuestionType(e.target.value);
+        if(questionType=="choice"){localStorage.removeItem("choiceQuestionCmp_"+props.num)}
+        else{localStorage.removeItem("subjectiveQuestionCmp_"+props.num)}
     };
 
-    const choiceQuestionData =(questionData) =>{
+
+    
+    const choiceQuestionData =() =>{
+        var choiceQuestionData = new Object();
+        
+        choiceQuestionData.title = questionTitle;
+        choiceQuestionData.isMultiSelectable = false;
+        
         var choiceList = JSON.parse(sessionStorage.getItem("choiceList_"+ props.num));
         if(choiceList != null){
-            questionData.choiceTexts= choiceList.choiceTexts;
+            choiceQuestionData.choiceOptions= choiceList.choiceTexts;
         }
+
+        choiceQuestionData.questionOrder= props.num;
+
+        var choiceQuestionDataToJSON = JSON.stringify(choiceQuestionData);
+        localStorage.removeItem("choiceQuestionCmp_"+props.num);
+        localStorage.setItem("choiceQuestionCmp_"+props.num, choiceQuestionDataToJSON);
+        
+
     }
 
-    var questionData = new Object();
+    const subjectiveQuestionData = () =>{
+        var subjectiveQuestionData = new Object();
+
+        subjectiveQuestionData.title = questionTitle;
+        subjectiveQuestionData.subjectiveType = "SHORT_ANSWER";
+        subjectiveQuestionData.questionOrder= props.num;
+
+        var subjectiveQuestionDataToJSON = JSON.stringify(subjectiveQuestionData);
+        
+        localStorage.removeItem("subjectiveQuestionCmp_"+props.num);
+        localStorage.setItem("subjectiveQuestionCmp_"+props.num, subjectiveQuestionDataToJSON);
+        
+
+        
+    }
+   
     
     useEffect(() => {
-        questionData.questionNum = props.num;
-        questionData.questionType = questionType;
-        questionData.questionTitle = questionTitle;
-        switch(questionType){
-            case "choice":  choiceQuestionData(questionData); break;
-        }
-        var questionDataToJSON = JSON.stringify(questionData);
-
-        sessionStorage.removeItem("questionCmp_"+props.num);
-        sessionStorage.setItem("questionCmp_"+props.num, questionDataToJSON);
         
+        switch(questionType){
+            case "choice":  choiceQuestionData(); break;
+            case "short_answer" : subjectiveQuestionData(); break;
+        }
         
     });
 
