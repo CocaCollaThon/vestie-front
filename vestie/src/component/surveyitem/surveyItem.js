@@ -1,8 +1,16 @@
 import "./style.css";
+import { useNavigate,useLocation } from 'react-router-dom';
+
 
 export const SurveyItem = ({survey}) => {
+    const navigate = useNavigate();
+    
     const moveToSurvey = () => {
-        window.location.href = "/survey";
+        navigate('/survey', {
+            state: {
+                surveyId : survey.id
+            }
+        });
     }
 
     return <div className="survey_item_box" onClick={moveToSurvey}>
@@ -12,14 +20,14 @@ export const SurveyItem = ({survey}) => {
                 {survey.title}
             </div>
             <div className="survey_item_date_box">
-                ~{survey.deadline}
+                ~{survey.endDate}
             </div>
         </div>
 
         <div className="survey_item_bottom_box">
             <div className="survey_item_question_count_box">
                 <span className="survey_item_question_count">
-                    {survey.Q_num}
+                    {survey.questionNumber}
                     </span> 문항
             </div>
 
