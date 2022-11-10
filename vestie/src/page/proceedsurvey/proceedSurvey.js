@@ -21,39 +21,62 @@ export const ProceedSurvey = () => {
     const surveyId = location.state.surveyId;
 
     const [sortedDataList, setSortedDataList] = useState([]); // question order로 정렬된 question List
+    const [surveySimpleResponse, setSurveySimpleResponse] = useState([]); 
 
 
-    const [inputData, setInputData] = useState({
-        "choiceQuestionResponses": [
-          {
-            "choiceOptionResponses": [
-              {"name": "","optionId": 0},
+    const [inputData, setInputData] = useState(
+        {
+            "choiceQuestionResponses": [
+              {
+                "choiceOptionResponses": [
+                  {
+                    "name": "string",
+                    "optionId": 0
+                  }
+                ],
+                "id": 0,
+                "isMultiSelectable": true,
+                "questionOrder": 0,
+                "title": "string",
+                "type": "string"
+              }
             ],
-            "id": 0,
-            "isMultiSelectable": false,
-            "questionOrder": 0,
-            "title": "",
-            "type": ""
+            "subjectiveQuestionResponses": [
+              {
+                "id": 0,
+                "questionOrder": 0,
+                "subjectiveType": "ESSAY",
+                "title": "string",
+                "type": "string"
+              }
+            ],
+            "surveySimpleResponse": {
+              "constraint": {
+                "genderConstraint": "NO_CONSTRAINT",
+                "maxAgeConstraint": 0,
+                "minAgeConstraint": 0
+              },
+              "endDate": "2022-11-10",
+              "expectedTime": 0,
+              "id": 0,
+              "memberId": 0,
+              "point": 0,
+              "questionNumber": 0,
+              "startDate": "2022-11-10",
+              "title": "string"
+            }
           }
-        ],
-        "subjectiveQuestionResponses": [
-          {
-            "id": 0,
-            "questionOrder": 0,
-            "subjectiveType": "",
-            "title": "",
-            "type": ""
-          }
-        ]
-        });
+    );
 
     const sortedData= new Array();
+    const choiceQuestionAnswerRequests= new Array();
+    const subjectiveQuestionAnswerRequests= new Array();
+
     const dataSorted = (inputData) => {
 
         inputData.choiceQuestionResponses.map(data =>{sortedData.push(data)});
         inputData.subjectiveQuestionResponses.map(data =>{sortedData.push(data)});
-        console.log(sortedData.sort((a,b)=>a.questionOrder-b.questionOrder),1313131);
-        
+        sortedData.sort((a, b) => a.questionOrder - b.questionOrder);
         setSortedDataList(sortedData);
     }
 
@@ -65,7 +88,7 @@ export const ProceedSurvey = () => {
               Authorization: "Bearer " + sessionStorage.getItem("token"),
             },
           })
-            .then(v => {console.log(v.data);
+            .then(v => {
             setInputData(v.data);
             
         });      
@@ -73,16 +96,58 @@ export const ProceedSurvey = () => {
 
     
     useEffect(()=>{
-        console.log(inputData);
         dataSorted(inputData);
+        setSurveySimpleResponse(inputData.surveySimpleResponse);
     },[inputData])
 
 
 
-    const moveToPage = () => {
-        navigate('/check_before_submit', {
-            state:{ "questionNum" : sortedDataList.length}
+    const setAnswerList=()=>{
+        for (let i = 1; i <= surveySimpleResponse.questionNumber; i++) {
+
+            if(localStorage.getItem("choiceAnswer_"+i) !=null){
+                console.log(localStorage.getItem("choiceAnswer_"+i));
+                
+                choiceQuestionAnswerRequests.push(JSON.parse(localStorage.getItem("choiceAnswer_"+i)));
+                
+                
+            }else if(localStorage.getItem("subjectiveAnswer_"+i) != null){
+                subjectiveQuestionAnswerRequests.push(JSON.parse(localStorage.getItem("subjectiveAnswer_"+i)));
+                
+            }
+        }
+
+    }
+
+    
+
+
+    const submitAnswers = () => {
+        setAnswerList();
+
+        console.log("choiceQuestionAnswerRequests");
+        console.log(choiceQuestionAnswerRequests);
+        console.log("subjectiveQuestionAnswerRequests");
+        console.log(subjectiveQuestionAnswerRequests);
+
+        axios.post('http://13.209.169.33:8080/api/v1/written-survey', {
+              "choiceQuestionAnswerRequests": choiceQuestionAnswerRequests,
+              "subjectiveQuestionAnswerRequests": subjectiveQuestionAnswerRequests,
+              "surveyId": surveySimpleResponse.id,
+              "writerAge": 20,
+              "writerGender": "MAN"
+            
+        }).then(v =>{
+            alert("제출 뿅");
+            localStorage.clear();
+            navigate('/check_before_submit', {
+                state:{ "numOfQuestion" : sortedDataList.length}
+            })
+        },
+        e =>{
+            alert("서버 장애");
         })
+        
     }
 
 
@@ -103,8 +168,8 @@ export const ProceedSurvey = () => {
             </div>
             <div className="under_btn_box">
                 
-                <button className="under_btn" id ="under_btn" onClick={moveToPage}>
-                    다음
+                <button className="under_btn" id ="under_btn" onClick={submitAnswers}>
+                    완료
                 </button>
             </div>
         </div>

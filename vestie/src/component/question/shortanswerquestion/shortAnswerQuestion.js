@@ -1,17 +1,31 @@
 import UnderLineInput from "../../input/underline/underLineInput";
+import {useState,useEffect} from "react";
+
 
 export const ShortAnswerQuestion = ({datas}) => {
+    const [userInput, setUserInput] = useState("");
+
+    const setSubjectiveAnswer =()=>{
+        const subjectiveAnswer = new Object();
+        subjectiveAnswer.answer = userInput;
+        subjectiveAnswer.surveyQuestionId = datas.id;
+
+        localStorage.setItem("subjectiveAnswer_"+datas.questionOrder,JSON.stringify(subjectiveAnswer));
+
+    }
+    useEffect(()=>{
+        setSubjectiveAnswer();
+    },[userInput])
+
     return (
         <div className="question_item_box">
 
-            {/* 질문 이름 */}
             <div className="question_name">
                 <span className="question_mark">{datas.questionOrder}</span>
                 {datas.title}
             </div>
 
-            {/* 답변 작성하는 칸 */}
-            <UnderLineInput></UnderLineInput>
+            <UnderLineInput acting ={(e)=>{setUserInput(e.target.value)}}></UnderLineInput>
         </div>
     );
 }
