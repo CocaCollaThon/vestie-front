@@ -2,7 +2,10 @@ import UnderLineInput from "../../component/input/underline/underLineInput";
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import "./signUpInputPersonalInpo.css"
+import ChoiceCmp from "../../component/question/chocieCmp/choiceComponent";
+
 import CircleButton from "../../component/circleButton/circleButton";
+import { useNavigate,useLocation } from 'react-router-dom';
 import React,{useState} from "react";
 import axios from 'axios';
 
@@ -11,19 +14,20 @@ export const SignUpInputPersonalInfo = () => {
     const [realName, setRealName] = useState('');
     const [userAge, setUserAge] = useState('');
     const [userGender, setUserGender] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSignUp = () =>{
 
-        axios.post('http://localhost:8080/api/v1/signUp', {
+        axios.post('http://13.209.169.33:8080/api/v1/signUp', {
             "name": realName,
             "age": userAge,
             "gender": userGender,
             "birthDate":"",
-            "username": sessionStorage.getItem("userName"),
-            "password": sessionStorage.getItem("password")
+            "username": location.state.username,
+            "password": location.state.password
         }).then(v =>{
             alert("회원가입을 축하드립니다.");
-            sessionStorage.clear();
             window.location.href = "/login";
         },
         e =>{
@@ -52,8 +56,11 @@ export const SignUpInputPersonalInfo = () => {
             <div className="input_box">
                 <div className="signup_gender_text">성별</div>
                 <div className="signup_gender_button_box">
-                    <CircleButton text={"남성"} acting ={(e) => {setUserGender("MAN");}} color={"blue"}></CircleButton>
-                    <CircleButton text={"여성"} acting ={(e) => {setUserGender("WOMAN");}} color={"pink"}></CircleButton>
+                    {/* <CircleButton text={"남성"} acting ={(e) => {setUserGender("MAN");}} color={"blue"}></CircleButton>
+                    <CircleButton text={"여성"} acting ={(e) => {setUserGender("WOMAN");}} color={"pink"}></CircleButton> */}
+                    <ChoiceCmp btn_text="남성" value ="MAN" groupName="genderConstraint" action={(e)=>{setUserGender(e.target.value)}}></ChoiceCmp>
+                    <ChoiceCmp btn_text="여성" value ="WOMAN" groupName="genderConstraint" action={(e)=>{setUserGender(e.target.value)}}></ChoiceCmp>
+                
                 </div>
             </div>
 

@@ -1,18 +1,25 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import "./style.css";
 import {ChoiceCmp} from "../chocieCmp/choiceComponent";
 
 
 
 
-export const ChoiceQuestion = () => {
+
+
+export const ChoiceQuestion = ({datas}) => {
     
     const [x,setX] = useState([]);
+    const [choiceOptions,setChoiceOptions] = useState([]);
+    // console.log(choiceOptions)
+    
+    useEffect(()=>{
+        setChoiceOptions(datas.choiceOptionResponses)
+    },[]);
 
     const handleClickRadioButton =(e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setX(e.target.value);
-
     }
     
 
@@ -20,27 +27,22 @@ export const ChoiceQuestion = () => {
         <div className="question_item_box">
             {/* 질문 이름 */}
             <div className="question_name">
-                <span className="question_mark">Q.</span>
-                오늘 혜진이가 듣고 싶은 노래를 한 가지 고르시오
+                <span className="question_mark">{datas.questionOrder}</span>
+                {/* <span className="question_mark">Q</span> */}
+                {datas.title}
+                {/* wlfans */}
             </div>
 
             {/* 질문 고르는 칸(객관식) */}
             <div className="choice_list">
                 {/* 질문 아이템 */}
-                <div className="choice_item">
-                    <ChoiceCmp value="1" checked={x==="1"} action={handleClickRadioButton} btn_text="집에 가지마"></ChoiceCmp>
+                {choiceOptions.map(option =>{
+                    return (
+                        <div className="choice_item">
+                        <ChoiceCmp value={option.optionId} checked={option.optionId} action={handleClickRadioButton} btn_text={option.name} groupName={datas.questionOrder}></ChoiceCmp>
                 </div>
-
-                <div className="choice_item" >
-                    <ChoiceCmp value="2" checked={x==="2"} action={handleClickRadioButton} btn_text="종강을 빌어줘"></ChoiceCmp>
-                </div>
-
-                <div className="choice_item" >
-                    <ChoiceCmp value="3" checked={x==="3"} action={handleClickRadioButton} btn_text="이야이에오"></ChoiceCmp>
-
-                </div>
-
-
+                    );
+                })}
                
             </div>
         </div>

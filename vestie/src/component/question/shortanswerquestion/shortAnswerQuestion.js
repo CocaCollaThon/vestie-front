@@ -1,13 +1,13 @@
 import UnderLineInput from "../../input/underline/underLineInput";
 
-export const ShortAnswerQuestion = () => {
+export const ShortAnswerQuestion = ({datas}) => {
     return (
         <div className="question_item_box">
 
             {/* 질문 이름 */}
             <div className="question_name">
-                <span className="question_mark">Q.</span>
-                오늘 혜진이가 먹고 싶었던 음식을 단답으로 작성하시오
+                <span className="question_mark">{datas.questionOrder}</span>
+                {datas.title}
             </div>
 
             {/* 답변 작성하는 칸 */}

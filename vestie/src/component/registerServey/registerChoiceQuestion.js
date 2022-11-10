@@ -12,25 +12,33 @@ export const RegisterChoiceQuestion = (props) => {
     const [radioBtnList, setRadioBtnList] = useState([]);
     const [newBtnText, setNewBtnText] = useState('');
 
-    var choiceTextList = new Array();
+    var choiceOptionList = new Array();
 
     var questionObjforJson = new Object();
-    questionObjforJson.choiceTexts="";
+    questionObjforJson.choiceOptions="";
 
     useEffect(() => {
         radioBtnList.map((radioBtnTexts, i)=>{
-            setChoiceTexts(radioBtnTexts);
+            setChoiceOptions(radioBtnTexts);
 
             var dataToJSON = JSON.stringify(questionObjforJson);
             
             localStorage.removeItem("choiceList_"+props.questionNum);
+            // console.log("questionObjforJson");
+            // console.log(typeof(dataToJSON));
             localStorage.setItem("choiceList_"+props.questionNum, dataToJSON);
+            // console.log("localStorage");
+            // console.log(typeof(localStorage.getItem("choiceList_"+props.questionNum)));
+
         });
     });
 
-    const setChoiceTexts = (content) => {
-        choiceTextList.push(content);
-        questionObjforJson.choiceTexts=choiceTextList;
+    const setChoiceOptions = (content) => {
+        var choiceOptionCmp = new Object();
+        
+        choiceOptionCmp.name =content;
+        choiceOptionList.push(choiceOptionCmp);
+        questionObjforJson.choiceOptions=[...choiceOptionList];
     }
 
     const btn_addChoice=()=>{

@@ -28,7 +28,7 @@ export const UnderBar = () => {
             </div>
 
             <div className="btn btn_search">
-                <img src={searchIcon} className="icon" oncl/>
+                <img src={searchIcon} className="icon" />
             </div>
 
             <div className="btn btn_register" onClick={moveToRegister} >
