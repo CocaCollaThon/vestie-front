@@ -3,12 +3,17 @@ import Header from "../../component/header/header";
 import "./signUp.css"
 import UnderButton from "../../component/under_button/under_button";
 import React, {useState} from "react";
+import { useNavigate,useLocation } from 'react-router-dom';
+
 let sessionStorage = window.sessionStorage;
 
 
 
 
 export const SignUp = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const [userID, setUserID] = useState('');
     const [userPW, setUserPW] = useState('');
     const [checkUserPW, setCheckUserPW] = useState('');
@@ -16,10 +21,12 @@ export const SignUp = () => {
 
 
     const saveToSessionStorage=()=>{
-        sessionStorage.setItem("userName",userID);
-        sessionStorage.setItem("password",userPW);
-        window.location.href = "/signup_input_personal_info_page";
-
+        navigate('/signup_input_personal_info_page', {
+            state: {
+                username: userID,
+                password: userPW,
+            }
+        });
     }
 
 

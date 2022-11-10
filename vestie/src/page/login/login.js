@@ -13,18 +13,21 @@ export const Login = () => {
 
     const hadleLogin = () =>{
         
-        axios.post('http://localhost:8080/api/v1/login ', {
-            "userId": userId,
-            "password": userPW
+        axios.post('http://13.209.169.33:8080/api/v1/login', {
+        "password": userPW,    
+        "username": userId
+            
         }).then(v =>{
             alert("로그인 되었습니다.");
-            sessionStorage.setItem("userId", v.data.userID);
-            sessionStorage.setItem("name", v.data.name);
+            sessionStorage.setItem("userId", userId);
+            sessionStorage.setItem("token", v.data.token);
+
             window.location.href = "/";
         },
         e =>{
             alert("서버 장애");
-            console.error(e);
+            // console.log("꺅")
+            // console.error(e.message);
         })
     }
 

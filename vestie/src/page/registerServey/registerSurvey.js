@@ -30,13 +30,13 @@ export const RegisterSurvey = () => {
 
             if(localStorage.getItem("choiceQuestionCmp_"+i) !=null){
                 
-                choiceQuestionList.push(localStorage.getItem("choiceQuestionCmp_"+i));
+                choiceQuestionList.push(JSON.parse(localStorage.getItem("choiceQuestionCmp_"+i)));
                 console.log("choiceQuestionList");
                 console.log(choiceQuestionList);
                 
                 
             }else if(localStorage.getItem("subjectiveQuestionCmp_"+i) != null){
-                subjectQuestionList.push(localStorage.getItem("subjectiveQuestionCmp_"+i));
+                subjectQuestionList.push(JSON.parse(localStorage.getItem("subjectiveQuestionCmp_"+i)));
                 console.log("subjectQuestionList");
                 console.log(subjectQuestionList);
                 
@@ -46,38 +46,30 @@ export const RegisterSurvey = () => {
     }
 
 
-
     const addComponent = () => {
         setNumChildren((count) => count + 1)
     }
 
     const handelSurvey = () =>{
         setQuestionLists();
-        
-        // alert("휘리릭 뿅");
-        //     localStorage.clear();
-        //     navigate('/check_before_register', {
-        //         state: {
-        //             numOfQuestion : numChildren
-        //         }
-        //     });
 
-        axios.post('http://localhost:8080/api/v1/survey ', {
-            "userId": sessionStorage.getItem("userId"),
-            "title": location.state.title,
-            "startDate": new Date().toLocaleDateString('ko-kr'),
-            "endDate": location.state.endDate,
-            "expectedTime": location.state.expectedTime,
-            "genderConstraint": location.state.genderConstraint,
-            "minAgeConstraint": location.state.minAgeConstraint,
-            "maxAgeConstraint": location.state.maxAgeConstraint,
-            "choiceQuestions" : choiceQuestionList,
-            "subjectiveQuestions":subjectQuestionList
-
-        }).then(v =>{
-            alert("휘리릭 뿅");
+        axios.post('http://13.209.169.33:8080/api/v1/survey ', {
+            choiceQuestions : choiceQuestionList,
+            endDate: location.state.endDate,
+            expectedTime: location.state.expectedTime,
+            genderConstraint: location.state.genderConstraint,
+	        maxAgeConstraint: location.state.maxAgeConstraint,
+            minAgeConstraint: location.state.minAgeConstraint,
+            startDate: new Date().toLocaleDateString('ko-kr').replace(/\./g, '').split(' ').join('-'),
+            subjectiveQuestions:subjectQuestionList,
+            title: location.state.title,
+          
+        },{
+            headers: {
+              Authorization: "Bearer " + sessionStorage.getItem("token"),
+            }}).then(v =>{
             localStorage.clear();
-            navigate('/check_before_register"', {
+            navigate('/check_before_register', {
                 state: {
                     numOfQuestion : numChildren
                 }
@@ -86,9 +78,9 @@ export const RegisterSurvey = () => {
         },
         e =>{
             alert("서버 장애");
+
             console.error(e);
         })
-
 
     }
 

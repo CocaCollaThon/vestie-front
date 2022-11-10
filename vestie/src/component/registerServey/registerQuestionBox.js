@@ -17,7 +17,10 @@ export const RegisterQuestionBox = (props) => {
 
     const handleSelect = (e) => {
         setQuestionType(e.target.value);
-        if(questionType=="choice"){localStorage.removeItem("choiceQuestionCmp_"+props.num)}
+        if(questionType=="choice"){
+            localStorage.removeItem("choiceQuestionCmp_"+props.num);
+            localStorage.removeItem("choiceList_"+props.num);
+        }
         else{localStorage.removeItem("subjectiveQuestionCmp_"+props.num)}
     };
 
@@ -31,7 +34,7 @@ export const RegisterQuestionBox = (props) => {
         
         var choiceList = JSON.parse(localStorage.getItem("choiceList_"+ props.num));
         if(choiceList != null){
-            choiceQuestionData.choiceOptions= choiceList.choiceTexts;
+            choiceQuestionData.choiceOptions= choiceList.choiceOptions;
         }
 
         choiceQuestionData.questionOrder= props.num;

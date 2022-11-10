@@ -1,93 +1,114 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import Header from "../../component/header/header";
 import ChoiceQuestion from "../../component/question/choicequestion/choiceQuestion";
 import ShortAnswerQuestion from "../../component/question/shortanswerquestion/shortAnswerQuestion";
 import MultiChoiceQuestion from "../../component/question/multichoicequestion/multiChoiceQuestion";
 import UnderButton from "../../component/under_button/under_button";
+import { useNavigate,useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 import "./proceedSurvey.css";
 
 var arrIndex = 0;
 
+
+
+
 export const ProceedSurvey = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const surveyId = location.state.surveyId;
 
-    // axios.get("http://localhost:8080/api/v1/survey/X")
-    //         .then(v => {
-    //             setCategories(v.data)
-    //             setCategory(v.data[0])
-    //         })
+    const [sortedDataList, setSortedDataList] = useState([]); // question order로 정렬된 question List
 
-    const questions = [
-        [
-        <ChoiceQuestion></ChoiceQuestion>,
-        <ChoiceQuestion></ChoiceQuestion>,
-        <ChoiceQuestion></ChoiceQuestion>,
-        <ChoiceQuestion></ChoiceQuestion>,
-        <ChoiceQuestion></ChoiceQuestion>
+
+    const [inputData, setInputData] = useState({
+        "choiceQuestionResponses": [
+          {
+            "choiceOptionResponses": [
+              {"name": "","optionId": 0},
+            ],
+            "id": 0,
+            "isMultiSelectable": false,
+            "questionOrder": 0,
+            "title": "",
+            "type": ""
+          }
         ],
-        [
-        <ShortAnswerQuestion></ShortAnswerQuestion>,
-        <ShortAnswerQuestion></ShortAnswerQuestion>,
-        <ShortAnswerQuestion></ShortAnswerQuestion>,
-        <ShortAnswerQuestion></ShortAnswerQuestion>,
-        <ShortAnswerQuestion></ShortAnswerQuestion>,
-        ],
-        [
-        <MultiChoiceQuestion></MultiChoiceQuestion>,
-        <MultiChoiceQuestion></MultiChoiceQuestion>,
-        <MultiChoiceQuestion></MultiChoiceQuestion>
-
+        "subjectiveQuestionResponses": [
+          {
+            "id": 0,
+            "questionOrder": 0,
+            "subjectiveType": "",
+            "title": "",
+            "type": ""
+          }
         ]
-    ];
+        });
+
+    const sortedData= new Array();
+    const dataSorted = (inputData) => {
+
+        inputData.choiceQuestionResponses.map(data =>{sortedData.push(data)});
+        inputData.subjectiveQuestionResponses.map(data =>{sortedData.push(data)});
+        console.log(sortedData.sort((a,b)=>a.questionOrder-b.questionOrder),1313131);
+        
+        setSortedDataList(sortedData);
+    }
+
+
+    useEffect(()=>{
+        axios.get(`http://13.209.169.33:8080/api/v1/survey/${surveyId}`, 
+        {
+            headers: {
+              Authorization: "Bearer " + sessionStorage.getItem("token"),
+            },
+          })
+            .then(v => {console.log(v.data);
+            setInputData(v.data);
+            
+        });      
+    },[]);
 
     
-    const [questionList, setQuestionList] = useState(questions[arrIndex]);
+    useEffect(()=>{
+        console.log(inputData);
+        dataSorted(inputData);
+    },[inputData])
+
 
 
     const moveToPage = () => {
-        window.location.href = "/check_before_submit";
+        navigate('/check_before_submit', {
+            state:{ "questionNum" : sortedDataList.length}
+        })
     }
 
 
-    const nextQuestions = () => {
 
-        if( arrIndex==questions.length-2){
-            const btnElement = document.getElementById('under_btn');
-            btnElement.innerText ="완료";
-        }
-        arrIndex += 1;
-        {
-            console.log(arrIndex)
-            console.log(questions.length)
-        }
+    return (
+        
+        <div>
+            
+            <Header></Header>
+            <div className="question" >
+                {sortedDataList.map(questionData=>{
+                    switch(questionData.type){
+                        case "choice" : return <ChoiceQuestion datas={questionData}></ChoiceQuestion>; break;
+                        case "subjective" : return <ShortAnswerQuestion datas={questionData}></ShortAnswerQuestion>; break;
+                    }
+                })}
 
-        setQuestionList(questions[arrIndex]);
-
-        window.scrollTo({
-            top:0,
-            behavior:'smooth'
-        });
-    }
-    while(arrIndex<questions.length){
-
-        return (
-            <div>
-                <Header></Header>
-                <div className="question" >
-                    {questionList.map((question, index) => {
-                        return <div key={index}>{question}</div>
-                    })}
-                </div>
-                <div className="under_btn_box">
-                    
-                    <button className="under_btn" id ="under_btn" onClick={(arrIndex<questions.length-1)? nextQuestions: moveToPage}>
-                        다음
-                    </button>
-                </div>
             </div>
-        );
-    }
+            <div className="under_btn_box">
+                
+                <button className="under_btn" id ="under_btn" onClick={moveToPage}>
+                    다음
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default ProceedSurvey;
