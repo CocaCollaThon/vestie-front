@@ -1,4 +1,4 @@
-.survey_item_box {
+.closedsurvey_item_box {
     background-color: white;
     border-radius: 10px;
     width: 80vw;
@@ -7,43 +7,45 @@
     margin: 15px auto;
 }
 
-.survey_item_bottom_box {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.7em;
-}
-
-.survey_item_name_box {
+.closedsurvey_item_name_box {
     font-weight: bold;
     font-size: 22px;
 }
 
-.survey_item_date_box {
+.closedsurvey_item_date_box {
     color: #929292;
     font-size: 12px;
 
 }
 
-.survey_item_question_count_box {
+.closedsurvey_item_bottom_box {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 0.7em; */
+}
+
+
+
+/* .closedsurvey_item_question_count_box {
     color: #929292;
     font-size: 11px;
     
-}
+} */
 
-.survey_item_question_count {
+.closedsurvey_item_question_count {
     color: red;
     font-size: 14px;
     font-weight: bold;
 }
 
-.survey_item_give_point {
+.closedsurvey_item_give_point {
     color: blue;
     font-size: 30px;
     font-weight: bold;
 }
 
-.survey_item_give_point_box {
+.closedsurvey_item_give_point_box {
     color: #929292;
-    font-size: 12px;
+    font-size: 13px;
     
 }
