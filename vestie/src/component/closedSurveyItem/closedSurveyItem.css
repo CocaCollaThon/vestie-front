@@ -1,0 +1,49 @@
+.survey_item_box {
+    background-color: white;
+    border-radius: 10px;
+    width: 80vw;
+    height: 10vh;
+    padding: 25px;
+    margin: 15px auto;
+}
+
+.survey_item_bottom_box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.7em;
+}
+
+.survey_item_name_box {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.survey_item_date_box {
+    color: #929292;
+    font-size: 12px;
+
+}
+
+.survey_item_question_count_box {
+    color: #929292;
+    font-size: 11px;
+    
+}
+
+.survey_item_question_count {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.survey_item_give_point {
+    color: blue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.survey_item_give_point_box {
+    color: #929292;
+    font-size: 12px;
+    
+}

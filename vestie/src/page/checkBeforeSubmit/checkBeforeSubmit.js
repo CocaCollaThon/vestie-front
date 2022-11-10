@@ -31,6 +31,8 @@ export const CheckBeforeSubmit = () => {
         btn_text="제출";
         point_text="제공 포인트"
         point ="10";
+        Qnum=location.state.numOfQuestion;
+
 
     }
 

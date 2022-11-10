@@ -26,8 +26,6 @@ export const Login = () => {
         },
         e =>{
             alert("서버 장애");
-            // console.log("꺅")
-            // console.error(e.message);
         })
     }
 

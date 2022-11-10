@@ -10,9 +10,8 @@ import {RegisterSurvey} from "./page/registerServey/registerSurvey";
 import {CheckBeforeSubmit} from "./page/checkBeforeSubmit/checkBeforeSubmit";
 
 import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
-import {UnderBar} from "./component/under_bar/underBar";
+import {ClosedSurvey} from "./page/closedSurvey/closedSurvey";
 
-import {RegisterQuestionBox} from "./component/registerServey/registerQuestionBox";
 
 import {SignUp} from "./page/signUp/signUp";
 import {Login} from "./page/login/login";
@@ -28,14 +27,14 @@ const Router = () => {
             <Route path="/register_setTarget" element ={<SurveySetTarget/>} />
             <Route path="/register_questions" element ={<RegisterSurvey/>} />
             
-            <Route path="/questions" element ={<RegisterQuestionBox/>} />
 
             <Route path="/check_before_register" element ={<CheckBeforeSubmit/>} />
             <Route path="/check_before_submit" element ={<CheckBeforeSubmit/>} />
             <Route path="/complete_register" element ={<CompleteProceedSurvey/>} />
             <Route path="/complete_submit" element ={<CompleteProceedSurvey/>} />
 
-            <Route path="/underBar" element ={<UnderBar/>} />
+            <Route path="/closedSurvey" element ={<ClosedSurvey/>} />
+
             <Route path="/signup" element ={<SignUp/>} />
             <Route path="/signup_input_personal_info_page" element ={<SignUpInputPersonalInfo/>} />
             <Route path="/login" element ={<Login/>} />
