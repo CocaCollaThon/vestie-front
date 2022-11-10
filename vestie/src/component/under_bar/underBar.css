@@ -9,13 +9,15 @@
 }
 
 .btn {
-    color: #4184F2;
+    /* background-color: #4184F2; */
     padding : 15px;
     padding-left:4%;
     padding-right:4%;
     float: left;
-    width: 12%;
+    width: 10%;
+    height: 80%;
     text-align: center;
+    border-radius: 50%; 
     
 
 }

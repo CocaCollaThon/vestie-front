@@ -23,7 +23,7 @@ export const Main = () => {
               Authorization: "Bearer " + sessionStorage.getItem("token"),
             },
           })
-            .then(v => {console.log(v.data);
+            .then(v => {
             setSurveyDataList(v.data);
             
         });                      
