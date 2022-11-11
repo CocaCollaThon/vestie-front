@@ -4,10 +4,13 @@ import searchIcon from "../icons/search.png";
 import registerIcon from "../icons/register.png";
 import myPageIcon from "../icons/mypage.png";
 import settingIcon from "../icons/setting.png";
+import {useState, useEffect} from "react"
 
 
 
 export const UnderBar = () => {
+    const location = window.location.href;
+    // console.log(location)
     const moveToHome = () => {
         window.location.href="/";
 
@@ -17,12 +20,25 @@ export const UnderBar = () => {
 
     }
     const moveToSignUp = () => {
-        window.location.href="/signup";
+        window.location.href="/login";
     }
     const moveToClosedSurvey = () => {
         window.location.href="/closedSurvey";
     }
+
+    const setStyle=(currentLocation)=>{
+        if(currentLocation.indexOf("closed")>0){
+            document.getElementById("btn_closed").style.backgroundColor="#93aee07c";
+
+        }else{
+            document.getElementById("btn_home").style.backgroundColor="#93aee07c";
+
+        }
+    }
     
+    useEffect(()=>{
+        setStyle(location);
+    })
 
     return (
         <div className="underBarDiv">
@@ -38,11 +54,11 @@ export const UnderBar = () => {
                 <img src={registerIcon} className="icon"/>
             </div>
 
-            <div className="btn btn_home" onClick={moveToHome} >
+            <div className="btn" id="btn_home" onClick={moveToHome} >
                 <img src={homeIcon} className="icon"/>
             </div>
 
-            <div className="btn btn_search" onClick={moveToClosedSurvey}>
+            <div className="btn" id="btn_closed" onClick={moveToClosedSurvey}>
                 <img src={searchIcon} className="icon" />
             </div>
             

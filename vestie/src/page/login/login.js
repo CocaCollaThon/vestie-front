@@ -1,9 +1,9 @@
-import UnderLineInput from "../../component/input/underline/underLineInput";
-import Header from "../../component/header/header";
-import UnderButton from "../../component/under_button/under_button";
-import "./login.css"
 import React,{useState} from "react";
 import axios from 'axios';
+import Header from "../../component/header/header";
+import UnderButton from "../../component/under_button/under_button";
+import UnderLineInput from "../../component/input/underline/underLineInput";
+import "./login.css"
 
 
 export const Login = () => {
@@ -36,20 +36,20 @@ export const Login = () => {
                 <div className="login_username_input">아이디</div>
                 <div className="underline_input_box">
                     <UnderLineInput acting ={(e) => {setUserId(e.target.value);}}></UnderLineInput>
-
                 </div>
             </div>
+
             <div className="input_box">
                 <div className="login_password_input">비밀번호</div>
                 <div className="underline_input_box">
-                    <UnderLineInput acting ={(e) => {setUserPW(e.target.value);}}></UnderLineInput>
-
+                    <div className="underline_box">
+                        <input type="password" className="pwBox" onChange={(e) => {setUserPW(e.target.value);}}></input>
+                    </div>
                 </div>
             </div>
             
             <div className="check_before_submit_bottom_button_box">
                 <UnderButton button_title="로그인" state ="notMove" action={hadleLogin}></UnderButton>
-
             </div>
 
             <div className="askToSignUpBox">

@@ -12,6 +12,18 @@
 .underline_input_box {
     margin-top: 2vh;
 }
+.underline_input_box input:focus{
+    border-color:#0982f0;
+    outline: none;
+}
+
+.pwBox{
+    width: 100%;
+    height: 30px;
+    border: 0 solid #E2E2E2;
+    border-bottom-width: 2px;
+    background-color: transparent;
+}
 
 .check_before_submit_bottom_button_box {
     width: 80%;

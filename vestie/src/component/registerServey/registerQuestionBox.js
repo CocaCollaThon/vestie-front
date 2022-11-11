@@ -1,12 +1,10 @@
 import {useState ,useEffect} from "react";
 
-import UnderLineInput from "../input/underline/underLineInput";
-
 import Dropdown from "../dropdown/dropdown";
-import './registerQuestion.css';
+import UnderLineInput from "../input/underline/underLineInput";
 import RegisterChoiceQuestion from "./registerChoiceQuestion";
 import RegisterShortAnswerQuestion from "./registerShortAnswerQuestion";
-
+import './registerQuestion.css';
 
 
 
@@ -19,11 +17,10 @@ export const RegisterQuestionBox = (props) => {
         setQuestionType(e.target.value);
         if(questionType=="choice"){
             localStorage.removeItem("choiceQuestionCmp_"+props.num);
-            localStorage.removeItem("choiceList_"+props.num);
+            localStorage.removeItem("choiceOptions_"+props.num);
         }
         else{localStorage.removeItem("subjectiveQuestionCmp_"+props.num)}
     };
-
 
     
     const choiceQuestionData =() =>{
@@ -32,14 +29,16 @@ export const RegisterQuestionBox = (props) => {
         choiceQuestionData.title = questionTitle;
         choiceQuestionData.isMultiSelectable = false;
         
-        var choiceList = JSON.parse(localStorage.getItem("choiceList_"+ props.num));
-        if(choiceList != null){
-            choiceQuestionData.choiceOptions= choiceList.choiceOptions;
+        var choiceOptions = JSON.parse(localStorage.getItem("choiceOptions_"+ props.num));
+
+        if(choiceOptions != null){
+            choiceQuestionData.choiceOptions= choiceOptions.choiceOptions;
         }
 
         choiceQuestionData.questionOrder= props.num;
 
         var choiceQuestionDataToJSON = JSON.stringify(choiceQuestionData);
+
         localStorage.removeItem("choiceQuestionCmp_"+props.num);
         localStorage.setItem("choiceQuestionCmp_"+props.num, choiceQuestionDataToJSON);
         

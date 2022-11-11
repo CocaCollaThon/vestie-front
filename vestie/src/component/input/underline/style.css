@@ -11,3 +11,7 @@
     border-bottom-width: 2px;
     background-color: transparent;
 }
+.underline_input_box input:focus{
+    border-color:#0982f0;
+    outline: none;
+}

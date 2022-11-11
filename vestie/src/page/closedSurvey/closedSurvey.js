@@ -13,6 +13,8 @@ export const ClosedSurvey = () => {
     
     const location = useLocation();
     const [surveyDataList, setSurveyDataList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const surveys = [];
 
@@ -23,11 +25,12 @@ export const ClosedSurvey = () => {
               Authorization: "Bearer " + sessionStorage.getItem("token"),
             },
           })
-            .then(v => {console.log(v.data);
+            .then(v => {
             setSurveyDataList(v.data);
+            setIsLoading(false);
             
         });                      
-    })
+    },[isLoading])
 
 
     return (

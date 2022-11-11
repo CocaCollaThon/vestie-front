@@ -30,10 +30,10 @@ export const SurveySetTarget = () => {
 
 
     return (
-        
+
         <div>
             <Header></Header>
-            
+
             <div className="register_contents">
                 <div className="page_title">
                     조사 대상
@@ -41,13 +41,13 @@ export const SurveySetTarget = () => {
                 <div className="data_input_box">
                     <div className="data_input_title">성별</div>
 
-                    <div className="check_radio_btns">
-                        <ChoiceCmp btn_text="남성" value ="ONLY_MAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="여성" value ="ONLY_WOMAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="둘 다" value ="NO_CONSTRAINT" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                    <div className="gender_check_radio_btns">
+                            <ChoiceCmp btn_text="남성" value ="ONLY_MAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                            <ChoiceCmp btn_text="여성" value ="ONLY_WOMAN" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
+                            <ChoiceCmp btn_text="둘 다" value ="NO_CONSTRAINT" groupName="genderConstraint" action={(e)=>{setGenderConstraint(e.target.value)}}></ChoiceCmp>
                     </div>
 
-                    <hr className="dividing_line"></hr>
+                    {/*<hr className="dividing_line"></hr>*/}
 
                 </div>
 
@@ -56,24 +56,36 @@ export const SurveySetTarget = () => {
                     <div className="data_input_title">나이</div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp btn_text="10대" value ="10" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="20대" value ="20" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        <div className="check_radio_btn">
+                            <ChoiceCmp btn_text="10대" value ="10" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        </div>
+                        <div className="check_radio_btn">
+                            <ChoiceCmp btn_text="20대" value ="20" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        </div>
                     </div>
 
                     <div className="check_radio_btns">
+                        <div className="check_radio_btn">
                         <ChoiceCmp btn_text="30대" value ="30" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        </div>
+                            <div className="check_radio_btn">
                         <ChoiceCmp btn_text="40대" value ="40" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                            </div>
                     </div>
 
                     <div className="check_radio_btns">
-                        <ChoiceCmp btn_text="50대" value ="50" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
-                        <ChoiceCmp btn_text="상관 없음" value ="0" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        <div className="check_radio_btn">
+                                <ChoiceCmp btn_text="50대" value ="50" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                        </div>
+                            <div className="check_radio_btn">
+                                <ChoiceCmp btn_text="상관 없음" value ="0" groupName="ageConstraint" action={(e)=>{setAgeConstraint(e.target.value)}}></ChoiceCmp>
+                            </div>
                     </div>
 
-                    <hr className="dividing_line"></hr>
+                    {/*<hr className="dividing_line"></hr>*/}
                 </div>
 
-                
+
             </div>
             <div className="under_btn_box">
                 <div className="under_btn">

@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
-import "./style.css";
 import {ChoiceCmp} from "../chocieCmp/choiceComponent";
-
+import "./style.css";
 
 
 export const ChoiceQuestion = ({datas}) => {
@@ -19,10 +18,7 @@ export const ChoiceQuestion = ({datas}) => {
         choiceOptionIdList.push(selectedOption);
     }
 
-    useEffect(()=>{
-        setChoiceOptions(datas.choiceOptionResponses)
-    },[]);
-
+    
     const setChoiceAnswer= ()=>{
         const choiceOptionIdList = new Array();
         choiceOptionIdList.push(selectedOption);
@@ -32,16 +28,20 @@ export const ChoiceQuestion = ({datas}) => {
         choiceAnswer.surveyQuestionId = datas.id;
 
         localStorage.setItem("choiceAnswer_"+datas.questionOrder,JSON.stringify(choiceAnswer));
-        
     }
 
 
     useEffect(()=>{
-        // setChoiceOptionIdList();
+        setChoiceOptions(datas.choiceOptionResponses)
+    },[]);
+
+
+    useEffect(()=>{
         setChoiceAnswer()
        console.log(datas.id);
        
     },[selectedOption]);
+
 
     return (
         <div className="question_item_box">
