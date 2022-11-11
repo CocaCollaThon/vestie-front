@@ -1,5 +1,5 @@
-import UnderLineInput from "../../input/underline/underLineInput";
 import {useState,useEffect} from "react";
+import UnderLineInput from "../../input/underline/underLineInput";
 
 
 export const ShortAnswerQuestion = ({datas}) => {
@@ -13,13 +13,15 @@ export const ShortAnswerQuestion = ({datas}) => {
         localStorage.setItem("subjectiveAnswer_"+datas.questionOrder,JSON.stringify(subjectiveAnswer));
 
     }
+
+
     useEffect(()=>{
         setSubjectiveAnswer();
     },[userInput])
 
+
     return (
         <div className="question_item_box">
-
             <div className="question_name">
                 <span className="question_mark">{datas.questionOrder}</span>
                 {datas.title}

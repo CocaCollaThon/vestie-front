@@ -20,7 +20,7 @@ export const UnderBar = () => {
 
     }
     const moveToSignUp = () => {
-        window.location.href="/signup";
+        window.location.href="/login";
     }
     const moveToClosedSurvey = () => {
         window.location.href="/closedSurvey";

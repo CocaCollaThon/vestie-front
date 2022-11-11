@@ -1,48 +1,37 @@
-import {useState} from "react"
+import {useState,useEffect} from "react"
+import { useNavigate,useLocation } from 'react-router-dom';
 import Header from "../../component/header/header";
 import UnderButton from "../../component/under_button/under_button";
 import {RegisterQuestionBox} from "../../component/registerServey/registerQuestionBox";
-import { useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
-
 import "./registerServey.css";
 
 export const RegisterSurvey = () => {
-    localStorage.clear();
+    const [numChildren, setNumChildren] = useState(1);
     const navigate = useNavigate();
     const location = useLocation();
-
+    const children = [];
+    
     var choiceQuestionList = new Array();
     var subjectQuestionList = new Array();
     
-    const [numChildren, setNumChildren] = useState(1);
-    const children = [];
-    
-
     
     for (let i = 1; i <= numChildren; i++) {
         children.push(<RegisterQuestionBox num={i} />)
     }
 
-    
+    useEffect(()=>{
+        
+    })
     const setQuestionLists=()=>{
         for (let i = 1; i <= numChildren; i++) {
 
             if(localStorage.getItem("choiceQuestionCmp_"+i) !=null){
-                
                 choiceQuestionList.push(JSON.parse(localStorage.getItem("choiceQuestionCmp_"+i)));
-                console.log("choiceQuestionList");
-                console.log(choiceQuestionList);
-                
-                
             }else if(localStorage.getItem("subjectiveQuestionCmp_"+i) != null){
                 subjectQuestionList.push(JSON.parse(localStorage.getItem("subjectiveQuestionCmp_"+i)));
-                console.log("subjectQuestionList");
-                console.log(subjectQuestionList);
-                
             }
         }
-
     }
 
 
@@ -74,11 +63,9 @@ export const RegisterSurvey = () => {
                     numOfQuestion : numChildren
                 }
             });
-
         },
         e =>{
             alert("서버 장애");
-
             console.error(e);
         })
 

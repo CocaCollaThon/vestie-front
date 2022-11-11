@@ -101,7 +101,6 @@ export const ProceedSurvey = () => {
     },[inputData])
 
 
-
     const setAnswerList=()=>{
         for (let i = 1; i <= surveySimpleResponse.questionNumber; i++) {
 
@@ -109,7 +108,6 @@ export const ProceedSurvey = () => {
                 console.log(localStorage.getItem("choiceAnswer_"+i));
                 
                 choiceQuestionAnswerRequests.push(JSON.parse(localStorage.getItem("choiceAnswer_"+i)));
-                
                 
             }else if(localStorage.getItem("subjectiveAnswer_"+i) != null){
                 subjectiveQuestionAnswerRequests.push(JSON.parse(localStorage.getItem("subjectiveAnswer_"+i)));
@@ -131,17 +129,17 @@ export const ProceedSurvey = () => {
         console.log(subjectiveQuestionAnswerRequests);
 
         axios.post('http://13.209.169.33:8080/api/v1/written-survey', {
+              "surveyId": surveySimpleResponse.id,
               "choiceQuestionAnswerRequests": choiceQuestionAnswerRequests,
               "subjectiveQuestionAnswerRequests": subjectiveQuestionAnswerRequests,
-              "surveyId": surveySimpleResponse.id,
-              "writerAge": 20,
-              "writerGender": "MAN"
-            
-        }).then(v =>{
+        },{
+          headers: {
+            Authorization: "Bearer " + sessionStorage.getItem("token"),
+          }}).then(v =>{
             alert("제출 뿅");
             localStorage.clear();
             navigate('/check_before_submit', {
-                state:{ "numOfQuestion" : sortedDataList.length}
+                state:{ "numOfQuestion" : surveySimpleResponse.questionNumber}
             })
         },
         e =>{

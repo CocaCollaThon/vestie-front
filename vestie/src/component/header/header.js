@@ -1,7 +1,6 @@
 import "./header.css";
 
 export const Header = () => {
-    
     return <HeaderComponent></HeaderComponent>;
 }
 

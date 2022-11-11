@@ -11,12 +11,13 @@ import { useNavigate,useLocation } from 'react-router-dom';
 import "./main.css";
 export const Main = () => {
     
-    const location = useLocation();
+    const [isLoading, setIsLoading] = useState(true);
     const [surveyDataList, setSurveyDataList] = useState([]);
 
     const surveys = [];
 
     useEffect(()=>{
+
         axios.get("http://13.209.169.33:8080/api/v1/survey", 
         {
             headers: {
@@ -25,9 +26,11 @@ export const Main = () => {
           })
             .then(v => {
             setSurveyDataList(v.data);
+            setIsLoading(false);
+            console.log("request");
             
         });                      
-    })
+    },[isLoading])
 
 
     return (

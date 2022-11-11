@@ -13,6 +13,8 @@ export const ClosedSurvey = () => {
     
     const location = useLocation();
     const [surveyDataList, setSurveyDataList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const surveys = [];
 
@@ -25,9 +27,10 @@ export const ClosedSurvey = () => {
           })
             .then(v => {
             setSurveyDataList(v.data);
+            setIsLoading(false);
             
         });                      
-    })
+    },[isLoading])
 
 
     return (

@@ -1,5 +1,5 @@
-import "./style.css";
 import CompleteIcon from "../completeicon/completeIcon";
+import "./style.css";
 
 
 
