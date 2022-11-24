@@ -6,10 +6,8 @@ export const ClosedSurveyItem = ({survey}) => {
     const navigate = useNavigate();
     
     const moveToSurvey = () => {
-        navigate('/survey', {
-            state: {
-                surveyId : survey.id
-            }
+        navigate('/surveyResults', {
+           
         });
     }
 
@@ -31,7 +29,7 @@ export const ClosedSurveyItem = ({survey}) => {
             </div>
 
             <div className="closedsurvey_item_give_point_box">
-                <span className="closedsurvey_item_give_point">{survey.participants}</span> 응답
+                <span className="closedsurvey_item_give_point">13</span> 응답
             </div>
         </div>
     </div>;
