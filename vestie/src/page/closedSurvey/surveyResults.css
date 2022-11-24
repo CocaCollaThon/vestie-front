@@ -1,0 +1,51 @@
+/* Register */
+span{
+    font-weight: bold;
+
+}
+.surveyResultDiv{
+    margin-top: 130px;
+}
+.surveyResultText{
+    font-size: x-large;
+    margin-left: 30px;
+}
+.surveyResults{
+    margin-top: 10px;
+    margin-left: 40px;
+    /* font-size: large; */
+
+}
+
+.gender_man{
+    display: inline-block;
+}
+.gender_woman{
+    margin-left: 30px;
+    display: inline-block;
+
+}
+.resultDataText{
+    font-size: larger;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+.resultDataList{
+    margin-left: 20px;
+
+}
+.resultOrderedListComponent{
+    margin-bottom: 20px;
+}
+
+.under_btn_box{
+    width: 100%;
+
+}
+.under_btn{
+    position:relative;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-top: 50px;
+}

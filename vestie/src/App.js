@@ -11,6 +11,7 @@ import {CheckBeforeSubmit} from "./page/checkBeforeSubmit/checkBeforeSubmit";
 
 import {CompleteProceedSurvey} from "./page/completeproceedsurvey/CompleteProceedSurveyComponent";
 import {ClosedSurvey} from "./page/closedSurvey/closedSurvey";
+import {SurveyResults} from "./page/closedSurvey/surveyResults";
 
 
 import {SignUp} from "./page/signUp/signUp";
@@ -34,6 +35,7 @@ const Router = () => {
             <Route path="/complete_submit" element ={<CompleteProceedSurvey/>} />
 
             <Route path="/closedSurvey" element ={<ClosedSurvey/>} />
+            <Route path="/surveyResults" element ={<SurveyResults/>} />
 
             <Route path="/signup" element ={<SignUp/>} />
             <Route path="/signup_input_personal_info_page" element ={<SignUpInputPersonalInfo/>} />
